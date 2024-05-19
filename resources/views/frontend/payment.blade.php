@@ -44,20 +44,7 @@
                         </div>
                     </div>
                 </div>
-                {{--                <div class="seat-no small pb-2">--}}
-                {{--                    <div class="voucher-code">--}}
-                {{--                        <div class="input-group border-0 shadow-sm bg-white rounded-1">--}}
-                {{--                            <input type="text" class="form-control small form-controlsm border-0 rounded-1"--}}
-                {{--                                   id="inlineFormInputGroup" placeholder="Enter Voucher Code">--}}
-                {{--                            <div class="input-group-prepend m-1">--}}
-                {{--                                <div--}}
-                {{--                                    class="rounded-1 small rounded btn btn-sm btn-danger inpt-group-text shadow-sm text-white border-0">--}}
-                {{--                                    Apply--}}
-                {{--                                </div>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
+
                 @php
                     $selectedSeats = session('selected_seats');
                 @endphp
@@ -196,9 +183,8 @@
             let seatsCount = $(this).data('seats-count');
             let busRouteId = "{{$busAvailDetail->busRoute->id}}";
             let busId = "{{$busAvailDetail->bus->id}}";
-            let pickupServiceId = "{{$busAvailDetail->busRoute->pickupService->id}}";
+            let pickupServiceId = "{{$pickupPoint->pickupService->id}}";
             let travelDate = "{{$busAvailDetail->travel_date}}";
-            {{--let seatsNumber = JSON.parse('{!! json_encode(session('selected_seats')) !!}');--}}
             let seatsNumber = "{{ implode(',', session('selected_seats')) }}"
             let passengerDetails = {};
             let isValid = true;
@@ -225,7 +211,6 @@
                         $('#confirm-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...').prop('disabled', true);
                     },
                     success: function (response) {
-                        console.log(response);
                         if (response.success === true) {
                             window.snap.show();
                             window.snap.pay(response.snap_token, {
@@ -239,7 +224,6 @@
                                             passenger_names: Object.values(passengerDetails).map(detail => detail.name),
                                             passenger_mobile_numbers: Object.values(passengerDetails).map(detail => detail.mobileNumber),
                                             passenger_addresses: Object.values(passengerDetails).map(detail => detail.address),
-                                            // passengerTicketNumbers: Object.values(passengerDetails).map(detail => detail.ticketNumber),
                                             busId: busId,
                                             busRouteId: busRouteId,
                                             pickupServiceId: pickupServiceId,
@@ -258,7 +242,6 @@
                                             _token: '{{ csrf_token() }}',
                                         },
                                         success: function (response) {
-                                            console.log(response);
                                             window.snap.hide();
                                             window.onbeforeunload = function () {
                                                 if ($('#paymentModal').is(':visible')) {
@@ -283,7 +266,6 @@
                                             passenger_names: Object.values(passengerDetails).map(detail => detail.name),
                                             passenger_mobile_numbers: Object.values(passengerDetails).map(detail => detail.mobileNumber),
                                             passenger_addresses: Object.values(passengerDetails).map(detail => detail.address),
-                                            // passengerTicketNumbers: Object.values(passengerDetails).map(detail => detail.ticketNumber),
                                             busId: busId,
                                             busRouteId: busRouteId,
                                             pickupServiceId: pickupServiceId,
@@ -325,7 +307,6 @@
                                             passenger_names: Object.values(passengerDetails).map(detail => detail.name),
                                             passenger_mobile_numbers: Object.values(passengerDetails).map(detail => detail.mobileNumber),
                                             passenger_addresses: Object.values(passengerDetails).map(detail => detail.address),
-                                            // passengerTicketNumbers: Object.values(passengerDetails).map(detail => detail.ticketNumber),
                                             busId: busId,
                                             busRouteId: busRouteId,
                                             pickupServiceId: pickupServiceId,
@@ -354,7 +335,8 @@
 
                                 },
                                 onClose: function () {
-                                    console.log('customer closed the popup without finishing the payment');
+                                    window.snap.hide();
+                                    toastr.error('You have closed the payment form');
                                 }
                             });
                         } else {
@@ -372,25 +354,22 @@
         });
 
         function getPassengerDetails(seat, index) {
-            let name, mobileNumber, address, ticketNumber;
+            let name, mobileNumber, address;
 
             if (index == 0) {
                 name = '{{auth()->user()->name}}';
                 mobileNumber = '{{auth()->user()->mobile_number}}';
                 address = '{{auth()->user()->address}}';
-                {{--ticketNumber = "{{generateUniqueTicketNumber() }}";--}}
             } else {
                 name = $('input[name="passenger_name[' + seat + ']"]').val();
                 mobileNumber = $('input[name="passenger_mobile_number[' + seat + ']"]').val();
                 address = $('textarea[name="passenger_address[' + seat + ']"]').val();
-                {{--ticketNumber = "{{generateUniqueTicketNumber() }}";--}}
             }
 
             return {
                 name: name,
                 mobileNumber: mobileNumber,
                 address: address,
-                // ticketNumber: ticketNumber
             };
         }
     </script>

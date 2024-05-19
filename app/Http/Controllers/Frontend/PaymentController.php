@@ -171,9 +171,7 @@ class PaymentController extends Controller
 
             foreach ($booking->bookingDetails as $bookingDetail) {
                 Log::info('Processing booking detail: ' . $bookingDetail->id);
-//                $bookingDetail->ticket_number = $this->generationUniqueTicketNumber();
-//                $bookingDetail->ticket_status = 'unused'; // unused, boarded, dropped
-//                $bookingDetail->save();
+
 
                 $busAvailability = BusAvailability::where('bus_id', $bookingDetail->bus_id)->firstOrFail();
                 if (!$busAvailability) {
@@ -240,12 +238,11 @@ class PaymentController extends Controller
                     "bus_route_id" => $detail->bus_route_id,
                     "bus_id" => $detail->bus_id,
                     "total_seats" => $detail->total_seats,
-                    "pickup_service_id" => $detail->pickup_service_id,
+                    "pickup_service" => $detail->pickupService,
                     "travel_date" => $detail->travel_date,
                     "created_at" => $detail->created_at,
                     "updated_at" => $detail->updated_at,
                     "bus_route" => $detail->busRoute,
-                    "pickup_service" => $detail->busRoute->pickupService,
                     // Initialize seat_number and ticket_number as arrays
                     "seat_number" => [],
                     "ticket_number" => [],

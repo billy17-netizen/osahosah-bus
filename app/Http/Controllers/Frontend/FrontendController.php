@@ -41,7 +41,13 @@ class FrontendController extends Controller
 
     public function index()
     {
-        $busRoutes = BusRoute::all();
+        $busRoutes = BusRoute::all()
+            ->groupBy(function ($busRoute) {
+                return $busRoute->origin . '-' . $busRoute->destination;
+            })
+            ->map(function ($group) {
+                return $group->first();
+            });
         return view('frontend.home.index', compact('busRoutes'));
     }
 
@@ -72,7 +78,7 @@ class FrontendController extends Controller
             // If the origin and destination are the same, return an error message
             return back()->withErrors(['destination' => 'Destination cannot be the same as origin.']);
         }
-        
+
 
         $availableRoutes = BusRoute::where('origin', $origin)
             ->where('destination', $destination)

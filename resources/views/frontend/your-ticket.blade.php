@@ -74,12 +74,20 @@
                     </div>
                 </div>
             </div>
-            <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Pay if ticket number is missing !</code></p>
-            <div class="list_item d-flex col-12 m-0 p-3 bg-white shadow-sm rounded-1 shadow-sm mt-2">
-                <div class="d-flex w-100 justify-content-center align-items-center">
-                    <button id="pay-modal" class="btn btn-sm btn-danger mb-0 l-hght-14 mx-auto">Continue Pay</button>
+
+            @if(empty($mergedDetails["ticket_number"]))
+                <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Pay if ticket number is missing !</code></p>
+            @else
+                <p class="mb-2 l-hght-18 font-weight-bold">Info:</p>
+            @endif
+            @if($booking->payment->payment_status === 'pending' && $booking->status === 'pending')
+                <div class="list_item d-flex col-12 m-0 p-3 bg-white shadow-sm rounded-1 shadow-sm mt-2">
+                    <div class="d-flex w-100 justify-content-center align-items-center">
+                        <button id="pay-modal" class="btn btn-sm btn-danger mb-0 l-hght-14 mx-auto">Continue Pay
+                        </button>
+                    </div>
                 </div>
-            </div>
+            @endif
             @foreach($customerDetails as $customerDetail)
                 <div class="list_item d-flex col-12 m-0 p-3 bg-white shadow-sm rounded-1 shadow-sm mt-2">
                     <div class="d-flex w-100">

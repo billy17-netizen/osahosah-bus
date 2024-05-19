@@ -99,27 +99,36 @@ class BookingController extends Controller
                 if ($c) {
                     $c->delete();
                 } else {
-                    Log::error('Customer not found for user ID: ' . $booking->user_id);
+                    return response()->json(['error' => 'Customer not found'], 400);
                 }
             }
-            //get back a available seat
+            //get back an available seat and matching with the capacity of the bus
             $bookingDetails = $booking->bookingDetails;
-            foreach ($bookingDetails as $detail) {
-                $busAvailability = $detail->bus->busAvailability->where('bus_route_id', $detail->bus_route_id)->first();
+            $totalSeats = $bookingDetails->first()->total_seats; // Get the total_seats value of the first BookingDetail
+
+            // Check if the total_seats value is the same for all BookingDetail instances
+            $sameTotalSeats = $bookingDetails->every(function ($detail) use ($totalSeats) {
+                return $detail->total_seats == $totalSeats;
+            });
+
+            if ($sameTotalSeats) {
+                // If the total_seats value is the same, increment the available_seats by this value only once
+                $busAvailability = $bookingDetails->first()->bus->busAvailability->where('bus_route_id', $bookingDetails->first()->bus_route_id)->first();
                 if ($busAvailability) {
-                    $busAvailability->available_seats += $detail->total_seats;
+                    $busAvailability->available_seats += $totalSeats;
                     $busAvailability->save();
                 } else {
-                    // Handle the case when $busAvailability is null
-                    // For example, you might want to log an error message
-                    Log::error('Bus availability not found for bus ID: ' . $detail->bus_id . ' and bus route ID: ' . $detail->bus_route_id);
+                    return response()->json(['error' => 'Bus availability not found'], 400);
                 }
+            } else {
+                return response()->json(['error' => 'Total seats are not the same for all booking details'], 400);
             }
-            //get back a status of a seat code
+
+            //get back the status of a seat code
             $seatCodes = $booking->bookingDetails->pluck('seat_number')->toArray();
             $bus = $booking->bookingDetails->first()->bus;
             $bus->seatConfiguration()->whereIn('code', $seatCodes)->update(['status' => 'available']);
-            
+
             $bookingDetails = BookingDetail::where('booking_id', $id)->get();
             foreach ($bookingDetails as $detail) {
                 $detail->delete();

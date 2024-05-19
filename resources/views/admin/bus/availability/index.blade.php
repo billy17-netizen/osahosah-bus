@@ -26,10 +26,10 @@
                     <div>
                         <a href="{{route('admin.bus-availability.create')}}" class="btn btn-success add-btn"
                            id="create-btn"><i
-                                    class="ri-add-line align-bottom me-1"></i> Add Bus Availability
+                                class="ri-add-line align-bottom me-1"></i> Add Bus Availability
                         </a>
                         <button type="button" class="btn btn-info"><i
-                                    class="ri-file-download-line align-bottom me-1"></i> Import
+                                class="ri-file-download-line align-bottom me-1"></i> Import
                         </button>
                     </div>
                 </div>
@@ -47,6 +47,7 @@
                             <th>Destination</th>
                             <th>Bus Number</th>
                             <th>Bus Name</th>
+                            <th>Available Seats</th>
                             <th data-ordering="false">Travel Date</th>
                             <th>Action</th>
                         </tr>
@@ -65,6 +66,7 @@
                                 <td>{{$availabilityBus->busRoute->destination}}</td>
                                 <td>{{$availabilityBus->bus->bus_number}}</td>
                                 <td>{{$availabilityBus->bus->bus_name}}</td>
+                                <td>{{$availabilityBus->available_seats}}</td>
                                 <td>{{Carbon\Carbon::parse($availabilityBus->travel_date)->format('Y-m-d h:i A')}}</td>
                                 <td>
                                     <a href="{{route('admin.bus-availability.edit', $availabilityBus->id)}}"

@@ -33,4 +33,9 @@ class BookingDetail extends Model
     {
         return $this->belongsTo(Bus::class);
     }
+
+    public function pickupService(): BelongsTo
+    {
+        return $this->belongsTo(PickupService::class);
+    }
 }
