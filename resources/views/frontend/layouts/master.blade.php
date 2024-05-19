@@ -28,6 +28,8 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox-thumbs.css"/>
     <link rel="stylesheet" type="text/css"
           href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox-buttons.css"/>
+    <!-- Sweet Alert css-->
+    <link href="{{asset('admin/assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css"/>
 
 
     <!-- Custom styles for this template -->
@@ -60,6 +62,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox-thumbs.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox-buttons.js"></script>
+
+<!-- Sweet Alerts js -->
+<script src="{{asset('admin/assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 
 {{--<!-- Toastr js -->--}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

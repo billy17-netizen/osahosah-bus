@@ -59,7 +59,7 @@ class BusBookingService
                     'total_seats' => $data['seatsCount'],
                     'pickup_service_id' => $data['pickupServiceId'],
                     'ticket_number' => null,
-                    'ticket_status' => 'unused', //'unused', 'boarded', 'dropped'
+                    'ticket_status' => null,
                     'travel_date' => $data['travelDate'],
                 ]);
 
@@ -75,7 +75,7 @@ class BusBookingService
             ];
         }
     }
-    
+
     /**
      * @throws RandomException
      */

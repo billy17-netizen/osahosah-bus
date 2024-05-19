@@ -4,6 +4,14 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use Exception;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use JsonException;
+use Log;
+use Random\RandomException;
 
 class TicketController extends Controller
 {
@@ -52,5 +60,84 @@ class TicketController extends Controller
         }
 
         return view('frontend.ticket.index', compact('bookings'));
+    }
+
+    public function checkPaymentStatus(Request $request): JsonResponse
+    {
+        $bookingId = $request->booking_id;
+        $serverKey = env('MIDTRANS_SERVER_KEY');
+
+        // Prepare the Authorization header
+        $authHeader = 'Basic ' . base64_encode($serverKey . ':');
+
+        // Create a new Guzzle client
+        $client = new Client();
+
+        try {
+            // Send a GET request to the Midtrans API
+            $response = $client->request('GET', 'https://api.sandbox.midtrans.com/v2/' . $bookingId . '/status', [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Authorization' => $authHeader
+                ]
+            ]);
+
+            // Get the response body and decode the JSON
+            $responseData = json_decode($response->getBody(), true, 512, JSON_THROW_ON_ERROR);
+
+            return response()->json($responseData);
+        } catch (GuzzleException $e) {
+            // Log the exception message
+            Log::error($e->getMessage());
+            // Return a generic error message
+            return response()->json(['error' => 'An error occurred while checking the payment status'], 500);
+        } catch (JsonException $e) {
+            // Log the JSON error
+            Log::error('JSON error: ' . $e->getMessage());
+            // Return a generic error message
+            return response()->json(['error' => 'An error occurred while checking the payment status'], 500);
+        }
+    }
+
+    public function donePayment(Request $request): JsonResponse
+    {
+        try {
+            $booking = Booking::where('user_id', auth()->id())
+                ->where('id', $request->booking_id)
+                ->first();
+
+            if (!$booking) {
+                return response()->json(['error' => 'Booking not found'], 404);
+            }
+
+            $booking->status = 'approved';
+            $booking->save();
+
+            //update the payment status
+            $payment = $booking->payment;
+            $payment->payment_status = 'settlement';
+            $payment->save();
+
+            //add the ticket number and ticket status
+            $bookingDetails = $booking->bookingDetails;
+
+            foreach ($bookingDetails as $detail) {
+                $detail->ticket_number = $this->generationUniqueTicketNumber();
+                $detail->ticket_status = 'unused';
+                $detail->save();
+            }
+            return response()->json(['message' => 'Payment successfully']);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['error' => 'An error occurred while processing the payment'], 500);
+        }
+    }
+
+    /**
+     * @throws RandomException
+     */
+    private function generationUniqueTicketNumber(): string
+    {
+        return 'TICKET' . date('YmdHis') . random_int(1000, 999999);
     }
 }

@@ -225,6 +225,7 @@
                         $('#confirm-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...').prop('disabled', true);
                     },
                     success: function (response) {
+                        console.log(response);
                         if (response.success === true) {
                             window.snap.show();
                             window.snap.pay(response.snap_token, {

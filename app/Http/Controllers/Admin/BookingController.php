@@ -115,6 +115,11 @@ class BookingController extends Controller
                     Log::error('Bus availability not found for bus ID: ' . $detail->bus_id . ' and bus route ID: ' . $detail->bus_route_id);
                 }
             }
+            //get back a status of a seat code
+            $seatCodes = $booking->bookingDetails->pluck('seat_number')->toArray();
+            $bus = $booking->bookingDetails->first()->bus;
+            $bus->seatConfiguration()->whereIn('code', $seatCodes)->update(['status' => 'available']);
+            
             $bookingDetails = BookingDetail::where('booking_id', $id)->get();
             foreach ($bookingDetails as $detail) {
                 $detail->delete();

@@ -164,8 +164,42 @@ class PaymentController extends Controller
                 $seatConfig->status = 'sold_out';
                 $seatConfig->save();
             }
-        } else {
-            $booking->status = $request->payment_status;
+        } elseif ($request->payment_status === 'pending') {
+            $booking->status = 'pending';
+
+            Log::info('Updating bus availability and seat configuration status...');
+
+            foreach ($booking->bookingDetails as $bookingDetail) {
+                Log::info('Processing booking detail: ' . $bookingDetail->id);
+//                $bookingDetail->ticket_number = $this->generationUniqueTicketNumber();
+//                $bookingDetail->ticket_status = 'unused'; // unused, boarded, dropped
+//                $bookingDetail->save();
+
+                $busAvailability = BusAvailability::where('bus_id', $bookingDetail->bus_id)->firstOrFail();
+                if (!$busAvailability) {
+                    Log::error('BusAvailability not found for id: ' . $bookingDetail->bus_id);
+                    continue;
+                }
+
+                --$busAvailability->available_seats;
+                $busAvailability->save();
+
+                Log::info('Updated available seats for BusAvailability id: ' . $busAvailability->id);
+
+                $bus = $busAvailability->bus;
+                if (!$bus) {
+                    Log::error('Bus not found for id: ' . $busAvailability->bus_id);
+                    continue;
+                }
+                //update status for seat configuration
+                $seatConfig = $bus->seatConfiguration()->where('code', $bookingDetail->seat_number)->first();
+                if (!$seatConfig) {
+                    Log::error('Seat configuration not found for code: ' . $bookingDetail->seat_number);
+                    continue;
+                }
+                $seatConfig->status = 'sold_out';
+                $seatConfig->save();
+            }
         }
 
         $booking->save();
@@ -182,7 +216,7 @@ class PaymentController extends Controller
      */
     private function generationUniqueTicketNumber(): string
     {
-        return 'TICKET' . date('YmdHi') . random_int(1000, 9999);
+        return 'TICKET' . date('YmdHis') . random_int(1000, 999999);
     }
 
     public function yourTicket($id)

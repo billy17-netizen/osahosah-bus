@@ -132,8 +132,9 @@
                                 id="page-header-notifications-dropdown" data-bs-toggle="dropdown"
                                 data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                             <i class='bx bx-bell fs-22'></i>
-                            <span class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">3<span
-                                        class="visually-hidden">unread messages</span></span>
+                            <span
+                                class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">3<span
+                                    class="visually-hidden">unread messages</span></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                              aria-labelledby="page-header-notifications-dropdown">
@@ -179,10 +180,12 @@
                             <div class="tab-content position-relative" id="notificationItemsTabContent">
                                 <div class="tab-pane fade show active py-2 ps-2" id="all-noti-tab" role="tabpanel">
                                     <div data-simplebar style="max-height: 300px;" class="pe-2">
-                                        <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
                                             <div class="d-flex">
                                                 <div class="avatar-xs me-3 flex-shrink-0">
-                                                <span class="avatar-title bg-info-subtle text-info rounded-circle fs-16">
+                                                <span
+                                                    class="avatar-title bg-info-subtle text-info rounded-circle fs-16">
                                                     <i class="bx bx-badge-check"></i>
                                                 </span>
                                                 </div>
@@ -194,7 +197,8 @@
                                                         </h6>
                                                     </a>
                                                     <p class="mb-0 fs-11 fw-medium text-uppercase text-muted">
-                                                        <span><i class="mdi mdi-clock-outline"></i> Just 30 sec ago</span>
+                                                        <span><i
+                                                                class="mdi mdi-clock-outline"></i> Just 30 sec ago</span>
                                                     </p>
                                                 </div>
                                                 <div class="px-2 fs-15">
@@ -208,7 +212,8 @@
                                             </div>
                                         </div>
 
-                                        <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
                                             <div class="d-flex">
                                                 <img src="{{asset('admin/assets/images/users/avatar-2.jpg')}}"
                                                      class="me-3 rounded-circle avatar-xs flex-shrink-0" alt="user-pic">
@@ -236,17 +241,19 @@
                                             </div>
                                         </div>
 
-                                        <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
                                             <div class="d-flex">
                                                 <div class="avatar-xs me-3 flex-shrink-0">
-                                                <span class="avatar-title bg-danger-subtle text-danger rounded-circle fs-16">
+                                                <span
+                                                    class="avatar-title bg-danger-subtle text-danger rounded-circle fs-16">
                                                     <i class='bx bx-message-square-dots'></i>
                                                 </span>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <a href="#!" class="stretched-link">
                                                         <h6 class="mt-0 mb-2 fs-13 lh-base">You have received <b
-                                                                    class="text-success">20</b> new messages in the
+                                                                class="text-success">20</b> new messages in the
                                                             conversation
                                                         </h6>
                                                     </a>
@@ -265,7 +272,8 @@
                                             </div>
                                         </div>
 
-                                        <div class="text-reset notification-item d-block dropdown-item position-relative">
+                                        <div
+                                            class="text-reset notification-item d-block dropdown-item position-relative">
                                             <div class="d-flex">
                                                 <img src="{{asset('admin/assets/images/users/avatar-8.jpg')}}"
                                                      class="me-3 rounded-circle avatar-xs flex-shrink-0" alt="user-pic">
@@ -443,8 +451,10 @@
                             <img class="rounded-circle header-profile-user" src="{{asset(auth()->user()->avatar)}}"
                                  alt="Header Avatar">
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{auth()->user()->name}}</span>
-                                <span class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">{{auth()->user()->role}}</span>
+                                <span
+                                    class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{auth()->user()->name}}</span>
+                                <span
+                                    class="d-none d-xl-block ms-1 fs-12 user-name-sub-text">{{auth()->user()->role}}</span>
                             </span>
                         </span>
                         </button>
@@ -452,31 +462,31 @@
                             <!-- item-->
                             <h6 class="dropdown-header">Welcome {{auth()->user()->name}}!</h6>
                             <a class="dropdown-item" href="pages-profile.html"><i
-                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Profile</span></a>
+                                    class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
+                                    class="align-middle">Profile</span></a>
                             <a class="dropdown-item" href="apps-chat.html"><i
-                                        class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>
+                                    class="mdi mdi-message-text-outline text-muted fs-16 align-middle me-1"></i>
                                 <span class="align-middle">Messages</span></a>
                             <a class="dropdown-item" href="apps-tasks-kanban.html"><i
-                                        class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>
+                                    class="mdi mdi-calendar-check-outline text-muted fs-16 align-middle me-1"></i>
                                 <span class="align-middle">Taskboard</span></a>
                             <a class="dropdown-item" href="pages-faqs.html"><i
-                                        class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Help</span></a>
+                                    class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
+                                    class="align-middle">Help</span></a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="pages-profile.html"><i
-                                        class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Balance : <b>$5971.67</b></span></a>
+                                    class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i> <span
+                                    class="align-middle">Balance : <b>$5971.67</b></span></a>
                             <a class="dropdown-item" href="pages-profile-settings.html"><span
-                                        class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
-                                        class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Settings</span></a>
+                                    class="badge bg-success-subtle text-success mt-1 float-end">New</span><i
+                                    class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
+                                    class="align-middle">Settings</span></a>
                             <a class="dropdown-item" href="auth-lockscreen-basic.html"><i
-                                        class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Lock screen</span></a>
+                                    class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i> <span
+                                    class="align-middle">Lock screen</span></a>
                             <a class="dropdown-item" href="auth-logout-basic.html"><i
-                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle" data-key="t-logout">Logout</span></a>
+                                    class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
+                                    class="align-middle" data-key="t-logout">Logout</span></a>
                         </div>
                     </div>
                 </div>
@@ -592,9 +602,12 @@
 <script src="{{asset('admin/assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
 <!-- filepond js -->
 <script src="{{asset('admin/assets/libs/filepond/filepond.min.js')}}"></script>
-<script src="{{asset('admin/assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js')}}"></script>
-<script src="{{asset('admin/assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js')}}"></script>
-<script src="{{asset('admin/assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js')}}"></script>
+<script
+    src="{{asset('admin/assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js')}}"></script>
+<script
+    src="{{asset('admin/assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js')}}"></script>
+<script
+    src="{{asset('admin/assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js')}}"></script>
 <script src="{{asset('admin/assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js')}}"></script>
 <!-- choices.js -->
 <script type='text/javascript'
@@ -653,7 +666,7 @@
                         url: url,
                         type: 'DELETE',
                         data: {
-                            _token: "{{ csrf_token() }}"
+                            _token: "{{ csrf_token() }}",
                         },
                         success: function (response) {
                             Swal.fire({
