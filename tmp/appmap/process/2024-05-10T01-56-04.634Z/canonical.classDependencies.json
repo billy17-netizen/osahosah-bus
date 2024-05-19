@@ -1,0 +1,630 @@
+[
+  {
+    "caller": "GET https://registry.yarnpkg.com/@alloc%2fquick-lru",
+    "callee": "GET https://registry.yarnpkg.com/ansi-styles"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@alloc%2fquick-lru",
+    "callee": "GET https://registry.yarnpkg.com/braces"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@alloc%2fquick-lru",
+    "callee": "GET https://registry.yarnpkg.com/color-convert"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@alloc%2fquick-lru",
+    "callee": "GET https://registry.yarnpkg.com/color-name"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-arm64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fsunos-x64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-x64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fopenbsd-x64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-arm64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fnetbsd-x64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-x64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-x64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-x64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-arm64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-arm64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-x64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-arm64",
+    "callee": "GET https://registry.yarnpkg.com/rollup"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-x64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-arm64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-x64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-arm"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-arm64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-ia32"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-mips64el"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-ppc64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-riscv64"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2flinux-s390x"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/sunos-x64/-/sunos-x64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-arm64/-/freebsd-arm64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/openbsd-x64/-/openbsd-x64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/android-arm/-/android-arm-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/android-x64/-/android-x64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/darwin-arm64/-/darwin-arm64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/darwin-x64/-/darwin-x64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/freebsd-arm64/-/freebsd-arm64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-arm/-/linux-arm-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-arm64/-/linux-arm64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-ia32/-/linux-ia32-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-mips64el/-/linux-mips64el-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-ppc64/-/linux-ppc64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-riscv64/-/linux-riscv64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/netbsd-x64/-/netbsd-x64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001617.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/esbuild/-/esbuild-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/rollup/-/rollup-3.29.4.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/vite/-/vite-4.5.3.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@isaacs%2fcliui",
+    "callee": "GET https://registry.yarnpkg.com/cross-spawn"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@isaacs%2fcliui",
+    "callee": "GET https://registry.yarnpkg.com/reusify"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fgen-mapping",
+    "callee": "GET https://registry.yarnpkg.com/util-deprecate"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fresolve-uri",
+    "callee": "GET https://registry.yarnpkg.com/@isaacs%2fcliui"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fresolve-uri",
+    "callee": "GET https://registry.yarnpkg.com/brace-expansion"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fresolve-uri",
+    "callee": "GET https://registry.yarnpkg.com/path-key"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fresolve-uri",
+    "callee": "GET https://registry.yarnpkg.com/run-parallel"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fset-array",
+    "callee": "GET https://registry.yarnpkg.com/@nodelib%2ffs.scandir"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fset-array",
+    "callee": "GET https://registry.yarnpkg.com/jackspeak"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fset-array",
+    "callee": "GET https://registry.yarnpkg.com/minimatch"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/@jridgewell%2fset-array",
+    "callee": "GET https://registry.yarnpkg.com/minipass"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/alpinejs",
+    "callee": "GET https://classic.yarnpkg.com/latest-version"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.10.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-x64/-/linux-x64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.10.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell/set-array/-/set-array-1.2.1.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.10.tgz",
+    "callee": "GET https://registry.yarnpkg.com/hasown/-/hasown-2.0.2.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/ansi-regex",
+    "callee": "GET https://registry.yarnpkg.com/eastasianwidth"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/arg",
+    "callee": "GET https://registry.yarnpkg.com/ansi-regex"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/asynckit",
+    "callee": "GET https://registry.yarnpkg.com/mime-db"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/asynckit",
+    "callee": "GET https://registry.yarnpkg.com/mime-types"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.19.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/win32-ia32/-/win32-ia32-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz",
+    "callee": "GET https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.10.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz",
+    "callee": "GET https://registry.yarnpkg.com/laravel-vite-plugin/-/laravel-vite-plugin-0.7.8.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz",
+    "callee": "GET https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.0.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/binary-extensions",
+    "callee": "GET https://registry.yarnpkg.com/pirates"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz",
+    "callee": "GET https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.4.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz",
+    "callee": "GET https://registry.yarnpkg.com/path-scurry/-/path-scurry-1.11.0.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz",
+    "callee": "GET https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.3.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/camelcase-css",
+    "callee": "GET https://registry.yarnpkg.com/anymatch"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001617.tgz",
+    "callee": "GET https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001617.tgz",
+    "callee": "GET https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/chokidar",
+    "callee": "GET https://registry.yarnpkg.com/is-fullwidth-code-point"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/chokidar",
+    "callee": "GET https://registry.yarnpkg.com/isexe"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/chokidar",
+    "callee": "GET https://registry.yarnpkg.com/shebang-command"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/cross-spawn",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell%2ftrace-mapping"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/cssesc",
+    "callee": "GET https://registry.yarnpkg.com/fsevents"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/didyoumean",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell%2fresolve-uri"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/didyoumean",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell%2fset-array"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/dlv",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell%2fgen-mapping"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/dlv",
+    "callee": "GET https://registry.yarnpkg.com/@nodelib%2ffs.walk"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/dlv",
+    "callee": "GET https://registry.yarnpkg.com/any-promise"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/dlv",
+    "callee": "GET https://registry.yarnpkg.com/arg"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/dlv",
+    "callee": "GET https://registry.yarnpkg.com/binary-extensions"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/dlv",
+    "callee": "GET https://registry.yarnpkg.com/is-binary-path"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/dlv",
+    "callee": "GET https://registry.yarnpkg.com/supports-preserve-symlinks-flag"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/eastasianwidth",
+    "callee": "GET https://registry.yarnpkg.com/queue-microtask"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.762.tgz",
+    "callee": "GET https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.0.15.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/esbuild",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-ia32"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/esbuild/-/esbuild-0.18.20.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/fast-glob",
+    "callee": "GET https://registry.yarnpkg.com/dlv"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/fast-glob",
+    "callee": "GET https://registry.yarnpkg.com/is-glob"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/fastq",
+    "callee": "GET https://registry.yarnpkg.com/hasown"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/follow-redirects",
+    "callee": "GET https://registry.yarnpkg.com/proxy-from-env"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz",
+    "callee": "GET https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.19.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/form-data",
+    "callee": "GET https://registry.yarnpkg.com/follow-redirects"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/fraction.js",
+    "callee": "GET https://registry.yarnpkg.com/escalade"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/fraction.js",
+    "callee": "GET https://registry.yarnpkg.com/normalize-range"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/fsevents",
+    "callee": "GET https://registry.yarnpkg.com/merge2"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/fsevents",
+    "callee": "GET https://registry.yarnpkg.com/readdirp"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/function-bind",
+    "callee": "GET https://registry.yarnpkg.com/object-assign"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/function-bind",
+    "callee": "GET https://registry.yarnpkg.com/thenify-all"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/glob",
+    "callee": "GET https://registry.yarnpkg.com/mz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/glob",
+    "callee": "GET https://registry.yarnpkg.com/path-parse"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/glob-parent",
+    "callee": "GET https://registry.yarnpkg.com/didyoumean"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/glob/-/glob-10.3.14.tgz",
+    "callee": "GET https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/hasown",
+    "callee": "GET https://registry.yarnpkg.com/fastq"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/hasown",
+    "callee": "GET https://registry.yarnpkg.com/foreground-child"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/hasown",
+    "callee": "GET https://registry.yarnpkg.com/pify"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/hasown",
+    "callee": "GET https://registry.yarnpkg.com/ts-interface-checker"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/is-binary-path",
+    "callee": "GET https://registry.yarnpkg.com/sucrase"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/is-core-module",
+    "callee": "GET https://registry.yarnpkg.com/camelcase-css"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/is-core-module",
+    "callee": "GET https://registry.yarnpkg.com/cssesc"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/is-fullwidth-code-point",
+    "callee": "GET https://registry.yarnpkg.com/emoji-regex"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/lilconfig",
+    "callee": "GET https://registry.yarnpkg.com/fast-glob"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/lines-and-columns",
+    "callee": "GET https://registry.yarnpkg.com/is-core-module"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.2.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/merge2",
+    "callee": "GET https://registry.yarnpkg.com/resolve"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.4.tgz",
+    "callee": "GET https://registry.yarnpkg.com/minipass/-/minipass-7.1.1.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/minipass/-/minipass-7.1.1.tgz",
+    "callee": "GET https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/nanoid",
+    "callee": "GET https://registry.yarnpkg.com/source-map-js"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/node-releases",
+    "callee": "GET https://registry.yarnpkg.com/update-browserslist-db"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/normalize-path",
+    "callee": "GET https://registry.yarnpkg.com/@nodelib%2ffs.stat"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/normalize-path",
+    "callee": "GET https://registry.yarnpkg.com/is-extglob"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/normalize-path",
+    "callee": "GET https://registry.yarnpkg.com/postcss-js"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/normalize-path",
+    "callee": "GET https://registry.yarnpkg.com/postcss-nested"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/normalize-path",
+    "callee": "GET https://registry.yarnpkg.com/read-cache"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/normalize-range",
+    "callee": "GET https://registry.yarnpkg.com/fraction.js"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/@alloc%2fquick-lru"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/chokidar"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/jiti"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/lilconfig"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/micromatch"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/normalize-path"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/postcss-import"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/postcss-load-config"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/object-hash",
+    "callee": "GET https://registry.yarnpkg.com/postcss-selector-parser"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/path-parse",
+    "callee": "GET https://registry.yarnpkg.com/yaml"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/pirates",
+    "callee": "GET https://registry.yarnpkg.com/commander"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/pirates",
+    "callee": "GET https://registry.yarnpkg.com/lines-and-columns"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz",
+    "callee": "GET https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.762.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/queue-microtask",
+    "callee": "GET https://registry.yarnpkg.com/shebang-regex"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/queue-microtask",
+    "callee": "GET https://registry.yarnpkg.com/strip-ansi"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/queue-microtask",
+    "callee": "GET https://registry.yarnpkg.com/which"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/shebang-regex",
+    "callee": "GET https://registry.yarnpkg.com/string-width"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/string-width",
+    "callee": "GET https://registry.yarnpkg.com/wrap-ansi"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/strip-ansi",
+    "callee": "GET https://registry.yarnpkg.com/balanced-match"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/strip-ansi",
+    "callee": "GET https://registry.yarnpkg.com/thenify"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/thenify-all",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell%2fsourcemap-codec"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/thenify-all",
+    "callee": "GET https://registry.yarnpkg.com/@pkgjs%2fparseargs"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/thenify-all",
+    "callee": "GET https://registry.yarnpkg.com/function-bind"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/thenify-all",
+    "callee": "GET https://registry.yarnpkg.com/signal-exit"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.0.15.tgz",
+    "callee": "GET https://registry.yarnpkg.com/glob/-/glob-10.3.14.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/vite/-/vite-4.5.3.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@esbuild/linux-s390x/-/linux-s390x-0.18.20.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/vite/-/vite-4.5.3.tgz",
+    "callee": "GET https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.2.tgz"
+  },
+  {
+    "caller": "GET https://registry.yarnpkg.com/yaml/-/yaml-2.4.2.tgz",
+    "callee": "GET https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.5.tgz"
+  }
+]

@@ -1,0 +1,992 @@
+[
+  {
+    "route": "GET https://classic.yarnpkg.com/latest-version",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@alloc%2fquick-lru",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-arm64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-arm64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-arm",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-arm64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-ia32",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-mips64el",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-ppc64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-riscv64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-s390x",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2flinux-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fnetbsd-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fopenbsd-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fsunos-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-arm64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-ia32",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-x64",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/android-arm/-/android-arm-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/android-x64/-/android-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/darwin-arm64/-/darwin-arm64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/darwin-x64/-/darwin-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/freebsd-arm64/-/freebsd-arm64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-arm/-/linux-arm-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-arm64/-/linux-arm64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-ia32/-/linux-ia32-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-mips64el/-/linux-mips64el-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-ppc64/-/linux-ppc64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-riscv64/-/linux-riscv64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-s390x/-/linux-s390x-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/linux-x64/-/linux-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/netbsd-x64/-/netbsd-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/openbsd-x64/-/openbsd-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/sunos-x64/-/sunos-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/win32-arm64/-/win32-arm64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/win32-ia32/-/win32-ia32-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@isaacs%2fcliui",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell%2fgen-mapping",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell%2fresolve-uri",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell%2fset-array",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell%2fsourcemap-codec",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell%2ftrace-mapping",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.5.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell/set-array/-/set-array-1.2.1.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@nodelib%2ffs.scandir",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@nodelib%2ffs.stat",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@nodelib%2ffs.walk",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@pkgjs%2fparseargs",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@tailwindcss%2fforms",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@vue%2freactivity",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/@vue%2fshared",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/alpinejs",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.10.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/ansi-regex",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/ansi-styles",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/any-promise",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/anymatch",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/arg",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/asynckit",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/autoprefixer",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.19.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/axios",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/balanced-match",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/binary-extensions",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/brace-expansion",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/braces",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/browserslist",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/camelcase-css",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/caniuse-lite",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001617.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/chokidar",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/color-convert",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/color-name",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/combined-stream",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/commander",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/cross-spawn",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/cssesc",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/delayed-stream",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/didyoumean",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/dlv",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/eastasianwidth",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/electron-to-chromium",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.762.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/emoji-regex",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/esbuild",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/esbuild/-/esbuild-0.18.20.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/escalade",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/fast-glob",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/fastq",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/fill-range",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/follow-redirects",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/foreground-child",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/form-data",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/fraction.js",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/fsevents",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/function-bind",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/glob",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/glob-parent",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/glob/-/glob-10.3.14.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/hasown",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/hasown/-/hasown-2.0.2.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/is-binary-path",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/is-core-module",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/is-extglob",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/is-fullwidth-code-point",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/is-glob",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/is-number",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/isexe",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/jackspeak",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/jiti",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/laravel-vite-plugin",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/laravel-vite-plugin/-/laravel-vite-plugin-0.7.8.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/lilconfig",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/lines-and-columns",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/lru-cache",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.2.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/merge2",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/micromatch",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/mime-db",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/mime-types",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/mini-svg-data-uri",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/minimatch",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.4.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/minipass",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/minipass/-/minipass-7.1.1.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/mz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/nanoid",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/node-releases",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/normalize-path",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/normalize-range",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/object-assign",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/object-hash",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/path-key",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/path-parse",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/path-scurry",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/path-scurry/-/path-scurry-1.11.0.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/picocolors",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/picomatch",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/pify",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/pirates",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss-import",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss-js",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss-load-config",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss-nested",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss-selector-parser",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss-value-parser",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/postcss/-/postcss-8.4.38.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/proxy-from-env",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/queue-microtask",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/read-cache",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/readdirp",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/resolve",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/reusify",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/rollup",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/rollup/-/rollup-3.29.4.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/run-parallel",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/shebang-command",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/shebang-regex",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/signal-exit",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/source-map-js",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.0.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/string-width",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/strip-ansi",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/sucrase",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/supports-preserve-symlinks-flag",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/tailwindcss",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.3.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/thenify",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/thenify-all",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/to-regex-range",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/ts-interface-checker",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/update-browserslist-db",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.0.15.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/util-deprecate",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/vite",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/vite-plugin-full-reload",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/vite/-/vite-4.5.3.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/which",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/wrap-ansi",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/yaml",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://registry.yarnpkg.com/yaml/-/yaml-2.4.2.tgz",
+    "parameters": "()",
+    "status": 200
+  },
+  {
+    "route": "GET https://yarnpkg.com/latest-version",
+    "parameters": "()",
+    "status": 301
+  }
+]

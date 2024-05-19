@@ -1,0 +1,18 @@
+{
+  "client": {
+    "name": "appmap-node",
+    "version": "2.21.1",
+    "url": "https://github.com/getappmap/appmap-node"
+  },
+  "language": {
+    "name": "javascript",
+    "engine": "Node.js",
+    "version": "v20.12.2"
+  },
+  "app": "buss-booking",
+  "recorder": {
+    "type": "process",
+    "name": "process"
+  },
+  "name": "2024-05-10T01:56:04.634Z"
+}

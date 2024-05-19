@@ -1,0 +1,812 @@
+[
+  {
+    "type": "external-service",
+    "name": "yarnpkg.com",
+    "children": [
+      {
+        "type": "external-route",
+        "name": "GET https://yarnpkg.com/latest-version"
+      }
+    ]
+  },
+  {
+    "type": "external-service",
+    "name": "registry.yarnpkg.com",
+    "children": [
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@tailwindcss%2fforms"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/mini-svg-data-uri"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/alpinejs"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@vue%2freactivity"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@vue%2fshared"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/autoprefixer"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/browserslist"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/caniuse-lite"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/fraction.js"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/normalize-range"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/picocolors"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss-value-parser"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/electron-to-chromium"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/node-releases"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/update-browserslist-db"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/escalade"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/axios"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/follow-redirects"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/form-data"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/proxy-from-env"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/asynckit"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/combined-stream"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/mime-types"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/delayed-stream"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/mime-db"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/laravel-vite-plugin"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/vite-plugin-full-reload"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/picomatch"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/nanoid"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/source-map-js"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/tailwindcss"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@alloc%2fquick-lru"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/arg"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/chokidar"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/didyoumean"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/dlv"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/fast-glob"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/glob-parent"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/is-glob"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/jiti"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/lilconfig"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/micromatch"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/normalize-path"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/object-hash"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss-import"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss-js"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss-load-config"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss-nested"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss-selector-parser"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/resolve"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/sucrase"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/is-extglob"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@nodelib%2ffs.stat"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@nodelib%2ffs.walk"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/merge2"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/anymatch"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/braces"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/is-binary-path"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/readdirp"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/fsevents"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/read-cache"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/yaml"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/camelcase-css"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/cssesc"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/util-deprecate"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/is-core-module"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/path-parse"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/supports-preserve-symlinks-flag"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell%2fgen-mapping"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/commander"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/glob"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/lines-and-columns"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/mz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/pirates"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/ts-interface-checker"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/pify"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/binary-extensions"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@nodelib%2ffs.scandir"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/fastq"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/hasown"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/foreground-child"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/jackspeak"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/minimatch"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/minipass"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/path-scurry"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell%2fset-array"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell%2fsourcemap-codec"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell%2ftrace-mapping"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/any-promise"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/object-assign"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/thenify-all"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/reusify"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/function-bind"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/cross-spawn"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/signal-exit"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@isaacs%2fcliui"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@pkgjs%2fparseargs"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/run-parallel"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/brace-expansion"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/lru-cache"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell%2fresolve-uri"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/path-key"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/shebang-command"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/which"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/thenify"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/queue-microtask"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/balanced-match"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/string-width"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/strip-ansi"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/wrap-ansi"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/shebang-regex"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/isexe"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/eastasianwidth"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/emoji-regex"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/is-fullwidth-code-point"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/ansi-regex"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/ansi-styles"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/color-convert"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/color-name"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/fill-range"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/to-regex-range"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/is-number"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/vite"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/esbuild"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/rollup"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-arm64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fandroid-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-arm64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fdarwin-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-arm64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2ffreebsd-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-arm"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-arm64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-ia32"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-loong64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-mips64el"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-ppc64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-riscv64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-s390x"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2flinux-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fnetbsd-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fopenbsd-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fsunos-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-arm64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-ia32"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild%2fwin32-x64"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-10.4.19.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/alpinejs/-/alpinejs-3.13.10.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.0.15.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001617.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/axios/-/axios-1.6.8.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.762.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.6.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/laravel-vite-plugin/-/laravel-vite-plugin-0.7.8.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss/-/postcss-8.4.38.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.0.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.3.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.16.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/yaml/-/yaml-2.4.2.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/glob/-/glob-10.3.14.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.5.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/hasown/-/hasown-2.0.2.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/minimatch/-/minimatch-9.0.4.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/minipass/-/minipass-7.1.1.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/path-scurry/-/path-scurry-1.11.0.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell/set-array/-/set-array-1.2.1.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.25.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/lru-cache/-/lru-cache-10.2.2.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/vite/-/vite-4.5.3.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/esbuild/-/esbuild-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/rollup/-/rollup-3.29.4.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/freebsd-arm64/-/freebsd-arm64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/freebsd-x64/-/freebsd-x64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/android-arm/-/android-arm-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/darwin-x64/-/darwin-x64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/android-x64/-/android-x64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/darwin-arm64/-/darwin-arm64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-arm/-/linux-arm-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-arm64/-/linux-arm64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-ia32/-/linux-ia32-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-loong64/-/linux-loong64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-mips64el/-/linux-mips64el-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-ppc64/-/linux-ppc64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-riscv64/-/linux-riscv64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-s390x/-/linux-s390x-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/linux-x64/-/linux-x64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/netbsd-x64/-/netbsd-x64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/openbsd-x64/-/openbsd-x64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/sunos-x64/-/sunos-x64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/win32-ia32/-/win32-ia32-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/win32-arm64/-/win32-arm64-0.18.20.tgz"
+      },
+      {
+        "type": "external-route",
+        "name": "GET https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.18.20.tgz"
+      }
+    ]
+  },
+  {
+    "type": "external-service",
+    "name": "classic.yarnpkg.com",
+    "children": [
+      {
+        "type": "external-route",
+        "name": "GET https://classic.yarnpkg.com/latest-version"
+      }
+    ]
+  }
+]
