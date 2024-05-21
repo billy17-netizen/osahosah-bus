@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\DetailsBusRouteController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProfileController;
+use App\Http\Controllers\Frontend\QrCodeController;
 use App\Http\Controllers\Frontend\TicketController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,6 +64,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         [TicketController::class, 'checkPaymentStatus'])->name('check-payment-status');
     Route::post('/done-payment', [TicketController::class, 'donePayment'])->name('done.payment');
 
+    //Generate QRCode
+    Route::get('/generate-qrcode/{ticket_number}', [QrCodeController::class, 'generate'])->name('generate.qrcode');
+    Route::get('/board/{ticketId}', [QrCodeController::class, 'board'])->name('board');
+    Route::get('/confirmation', [QrCodeController::class, 'confirmation'])->name('confirmation');
     //Profile
     Route::get('profile', [ProfileController::class, 'profile'])->name('profile.index');
     Route::put('profile/update', [ProfileController::class, 'updateProfile'])->name('profiles.update');

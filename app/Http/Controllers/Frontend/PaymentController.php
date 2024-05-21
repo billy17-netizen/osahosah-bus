@@ -93,7 +93,7 @@ class PaymentController extends Controller
     }
 
     /**
-     * @throws RandomException
+     * @throws RandomExceptionAlias
      */
     public function updatePaymentStatus(Request $request, BusBookingService $busBookingService): JsonResponse
     {

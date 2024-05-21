@@ -1,3 +1,4 @@
+@php use Carbon\Carbon; @endphp
 @extends('admin.layouts.master')
 
 @section('content')
@@ -71,10 +72,10 @@
                                 <div class="col-md-12">
                                     <div class="mb-3">
                                         <label class="form-label">Travel Date</label>
-                                        <input type="text" name="travel_date"
-                                               class="form-control flatpickr-input active"
-                                               placeholder="Enter Travel Date " data-provider="flatpickr"
-                                               data-date-format="Y-m-d" data-enable-time
+                                        <input type="text" name="travel_date" id="my-input"
+                                               class="form-control flatpickr-input active" data-provider="flatpickr"
+                                               placeholder="Enter Travel Date " data-time-basic="true"
+                                               data-date-format="Y-m-d" data-enable-time="true" data-time_24hr="true"
                                                value="{{$busAvailability->travel_date}}"
                                                readonly required>
                                         <div class="valid-feedback">
@@ -205,6 +206,15 @@
 @endsection
 @push('scripts')
     <script>
+        // // Select the input element
+        // var inputElement = document.querySelector('#my-input');
+        //
+        // // Initialize flatpickr
+        // flatpickr(inputElement, {
+        //     enableTime: true, // Enable time selection
+        //     time_24hr: true, // Use 24-hour time format
+        //     dateFormat: "Y-m-d H:i", // Set the format of the date that will be displayed in the input
+        // });
         $(document).ready(function () {
             $('.example').on('click', '.select-rute', function (event) {
                 event.preventDefault();

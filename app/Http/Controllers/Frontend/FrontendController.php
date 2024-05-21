@@ -73,6 +73,7 @@ class FrontendController extends Controller
             return back()->withErrors(['travel_date' => 'Travel date cannot be a past date.']);
         }
 
+
         //Check if the origin and destination are the same
         if ($origin === $destination) {
             // If the origin and destination are the same, return an error message
@@ -87,10 +88,10 @@ class FrontendController extends Controller
         foreach ($availableRoutes as $route) {
             $availabilities = BusAvailability::where('bus_route_id', $route->id)
                 ->whereDate('travel_date', $travelDate)
+                ->where('travel_date', '>', Carbon::now()) // Modify this line
                 ->get();
 
             if (!$availabilities->isEmpty()) {
-                // Add a check to ensure the route is available on the specified travel date
                 foreach ($availabilities as $availability) {
                     $availableBuses[] = $availability;
                 }

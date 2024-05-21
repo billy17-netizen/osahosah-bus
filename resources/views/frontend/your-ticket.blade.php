@@ -78,7 +78,8 @@
             @if(empty($mergedDetails["ticket_number"]))
                 <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Pay if ticket number is missing !</code></p>
             @else
-                <p class="mb-2 l-hght-18 font-weight-bold">Info:</p>
+                <p class="mb-2 l-hght-18 font-weight-bold">Info:<code>Click on the ticket number to view the QR
+                        code</code></p>
             @endif
             @if($booking->payment->payment_status === 'pending' && $booking->status === 'pending')
                 <div class="list_item d-flex col-12 m-0 p-3 bg-white shadow-sm rounded-1 shadow-sm mt-2">
@@ -105,7 +106,14 @@
                                 @if(($customerDetail['ticket_number'] === ""))
                                     <p class="small mb-0 ml-auto l-hght-14">-</p>
                                 @else
-                                    <p class="small mb-0 ml-auto l-hght-14"> {{$customerDetail['ticket_number']}}</p>
+                                    @if($customerDetail['ticket_status'] === "unused")
+                                        <a href="{{ route('generate.qrcode', ['ticket_number' => $customerDetail['ticket_number']]) }}">
+                                            <p class="small mb-0 ml-auto l-hght-14"> {{$customerDetail['ticket_number']}}</p>
+                                        </a>
+                                    @else
+                                        <p class="small mb-0 ml-auto l-hght-14"> {{$customerDetail['ticket_number']}}</p>
+                                    @endif
+
                                 @endif
                             </div>
 

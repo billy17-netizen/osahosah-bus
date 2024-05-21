@@ -68,7 +68,8 @@
                                         <input type="text" name="travel_date"
                                                class="form-control flatpickr-input active"
                                                placeholder="Enter Travel Date " data-provider="flatpickr"
-                                               data-date-format="Y-m-d" data-enable-time readonly="readonly"
+                                               data-date-format="Y-m-d" data-enable-time="true" data-time_24hr="true"
+                                               readonly="readonly"
                                                required>
                                         <div class="valid-feedback">
                                             Looks good!

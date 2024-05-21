@@ -298,6 +298,7 @@
                                     });
                                 },
                                 onError: function (result) {
+                                    console.log(result);
                                     $.ajax({
                                         url: '{{route('update.payment.status')}}',
                                         type: 'POST',

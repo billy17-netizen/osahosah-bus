@@ -67,7 +67,7 @@
                                 <td>{{$availabilityBus->bus->bus_number}}</td>
                                 <td>{{$availabilityBus->bus->bus_name}}</td>
                                 <td>{{$availabilityBus->available_seats}}</td>
-                                <td>{{Carbon\Carbon::parse($availabilityBus->travel_date)->format('Y-m-d h:i A')}}</td>
+                                <td>{{Carbon\Carbon::parse($availabilityBus->travel_date)->timezone('Asia/Jakarta')->format('Y-m-d H:i:s A')}}</td>
                                 <td>
                                     <a href="{{route('admin.bus-availability.edit', $availabilityBus->id)}}"
                                        class="btn btn-primary btn-sm">Edit</a>
