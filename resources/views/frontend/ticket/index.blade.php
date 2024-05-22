@@ -10,14 +10,22 @@
             </h5>
         </div>
         <!-- You Ticket -->
+        {{--Info Date Book--}}
         @forelse($bookings as $booking)
             <div class="your-ticket border-top row m-0 p-3">
                 <!-- My Ticket Item -->
+                <p class="mb-2 l-hght-18 font-weight-bold">{{Carbon\Carbon::parse($booking->created_at)->format('d M Y, H:i:s A')}}</p>
                 <div class="bg-white rounded-1 shadow-sm p-3 mb-3 w-100">
                     <a href="{{route('your-ticket',$booking->id)}}">
                         <div class="d-flex align-items-center mb-2">
                             <small class="text-muted">Booking ID : {{$booking->id}}</small>
-                            <small class="text-success ml-auto f-10">{{strtoupper($booking->status)}}</small>
+                            @if($booking->status === 'pending')
+                                <small class="text-warning ml-auto f-10">{{strtoupper($booking->status)}}</small>
+                            @elseif($booking->status === 'expired')
+                                <small class="text-danger ml-auto f-10">{{strtoupper($booking->status)}}</small>
+                            @else
+                                <small class="text-success ml-auto f-10">{{strtoupper($booking->status)}}</small>
+                            @endif
                         </div>
                         <h6 class="mb-3 l-hght-18 font-weight-bold text-dark">Osahan-Bus Travellers ISO 9002- 2009
                             Certified</h6>

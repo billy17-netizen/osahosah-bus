@@ -10,6 +10,7 @@ class Customer extends Model
 {
     protected $fillable = [
         'user_id',
+        'booking_id', // Add this line
         'name',
         'mobile_number',
         'address',
@@ -20,7 +21,7 @@ class Customer extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function bookings(): HasMany
+    public function booking(): HasMany
     {
         return $this->hasMany(Booking::class);
     }

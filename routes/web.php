@@ -63,6 +63,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/check-payment-status',
         [TicketController::class, 'checkPaymentStatus'])->name('check-payment-status');
     Route::post('/done-payment', [TicketController::class, 'donePayment'])->name('done.payment');
+    Route::post('/expire-payment', [TicketController::class, 'expireTicket'])->name('expire.payment');
 
     //Generate QRCode
     Route::get('/generate-qrcode/{ticket_number}', [QrCodeController::class, 'generate'])->name('generate.qrcode');

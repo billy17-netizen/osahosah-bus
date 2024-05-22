@@ -140,4 +140,62 @@ class TicketController extends Controller
     {
         return 'TICKET' . date('YmdHis') . random_int(1000, 999999);
     }
+
+    public function expireTicket(Request $request): JsonResponse
+    {
+        try {
+            $booking = Booking::where('user_id', auth()->id())
+                ->where('id', $request->booking_id)
+                ->first();
+
+            if (!$booking) {
+                return response()->json(['error' => 'Booking not found'], 404);
+            }
+
+            $booking->status = 'expired';
+            $booking->save();
+
+            //update the payment status
+            $payment = $booking->payment;
+            $payment->payment_status = 'expire';
+            $payment->save();
+
+            //add the ticket number and ticket status
+            $bookingDetails = $booking->bookingDetails;
+
+            foreach ($bookingDetails as $detail) {
+                $detail->ticket_status = 'expired';
+                $detail->save();
+                //get back a seat code
+                $bus = $detail->bus;
+                $bus->seatConfiguration()->where('code', $detail->seat_number)->update(['status' => 'available']);
+                $bus->save();
+
+                $bookingDetails = $booking->bookingDetails;
+                $totalSeats = $bookingDetails->first()->total_seats; // Get the total_seats value of the first BookingDetail
+
+                // Check if the total_seats value is the same for all BookingDetail instances
+                $sameTotalSeats = $bookingDetails->every(function ($detail) use ($totalSeats) {
+                    return $detail->total_seats == $totalSeats;
+                });
+
+                if ($sameTotalSeats) {
+                    // If the total_seats value is the same, increment the available_seats by this value only once
+                    $busAvailability = $bookingDetails->first()->bus->busAvailability->where('bus_route_id', $bookingDetails->first()->bus_route_id)->first();
+                    if (!$busAvailability) {
+                        return response()->json(['error' => 'Bus availability not found'], 400);
+                    }
+
+                    $busAvailability->available_seats += $totalSeats;
+                    $busAvailability->save();
+                } else {
+                    return response()->json(['error' => 'Total seats are not the same for all booking details'], 400);
+                }
+            }
+            return response()->json(['message' => "Your payment has been expired and the ticket has been canceled try booking again"]);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['error' => 'An error occurred while canceling the ticket'], 500);
+        }
+    }
 }

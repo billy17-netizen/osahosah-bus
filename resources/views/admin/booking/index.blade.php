@@ -85,8 +85,8 @@
                                 <td>
                                     @if($allBooking->status === 'pending')
                                         <span class="badge bg-warning-subtle text-warning">Pending</span>
-                                    @elseif($allBooking->status === 'cancel')
-                                        <span class="badge bg-danger-subtle text-danger">Cancel</span>
+                                    @elseif($allBooking->status === 'expired')
+                                        <span class="badge bg-danger-subtle text-danger">Expired</span>
                                     @else
                                         <span class="badge bg-success-subtle text-success">Approved</span>
                                     @endif

@@ -145,7 +145,7 @@
                          style="width: 64px; height: 64px" alt="Payment Pending">
                     <h5 class="font-weight-normal">Payment Pending!</h5>
                     <p class="mb-4">The system is waiting for the<br>the ticket</p>
-                    <a href="#" class="btn btn-sm btn-danger">Check Your Ticket</a>
+                    <a id="pending-paymentURL" href="" class="btn btn-sm btn-danger">Check Your Ticket</a>
                 </div>
                 <div class="modal-footer d-none">
                 </div>
@@ -164,7 +164,7 @@
                          style="width: 64px; height: 64px" alt="Payment Error">
                     <h5 class="font-weight-normal">Payment Error!</h5>
                     <p class="mb-4"> Your payment has been failed. Please try again.</p>
-                    <a href="#" class="btn btn-sm btn-danger">Try Again</a>
+                    <a id="error-paymentURL" href="#" class="btn btn-sm btn-danger">Try Again</a>
                 </div>
                 <div class="modal-footer d-none">
                 </div>
@@ -186,6 +186,7 @@
             let pickupServiceId = "{{$pickupPoint->pickupService->id}}";
             let travelDate = "{{$busAvailDetail->travel_date}}";
             let seatsNumber = "{{ implode(',', session('selected_seats')) }}"
+            let bus_availability_id = "{{$busAvailDetail->id}}";
             let passengerDetails = {};
             let isValid = true;
             console.log(seatsNumber);
@@ -206,6 +207,7 @@
                     data: {
                         _token: '{{csrf_token()}}',
                         total_amount: totalAmount,
+                        bus_availability_id: bus_availability_id,
                     },
                     beforeSend: function () {
                         $('#confirm-btn').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...').prop('disabled', true);
@@ -257,6 +259,7 @@
                                     });
                                 },
                                 onPending: function (result) {
+                                    console.log(result);
                                     $.ajax({
                                         url: '{{route('update.payment.status')}}',
                                         type: 'POST',
@@ -290,6 +293,7 @@
                                                     window.location.href = "{{route('home')}}";
                                                 }
                                             };
+                                            $('#pending-paymentURL').attr('href', response.ticket_url);
                                             $('#paymentPendingModal').modal('show');
                                         },
                                         error: function (error) {
@@ -327,6 +331,8 @@
                                         },
                                         success: function (response) {
                                             window.snap.hide();
+
+                                            $('#error-paymentURL').attr('href', response.ticket_url);
                                             $('#paymentErrorModal').modal('show');
                                         },
                                         error: function (error) {

@@ -52,12 +52,21 @@
                                     <td>{{ $customer['name'] }}</td>
                                     <td>{{ $customer['mobile_number'] }}</td>
                                     <td>{{ $customer['address'] }}</td>
-                                    <td>{{ $customer['ticket_number'] }}</td>
+                                    <td>
+                                        @if($customer['ticket_number'] === "")
+                                            <span class="badge bg-soft-danger text-muted">-</span>
+                                    @else
+                                        {{ $customer['ticket_number'] }}
+                                    @endif
                                     <td>
                                         @if($customer['ticket_status'] === 'unused')
                                             <span class="badge bg-soft-warning text-warning">UN-USED</span>
                                         @elseif($customer['ticket_status'] === 'boarded')
                                             <span class="badge bg-soft-success text-info">BOARDED</span>
+                                        @elseif($customer['ticket_status'] === 'expired')
+                                            <span class="badge bg-soft-success text-danger">EXPIRED</span>
+                                        @elseif($customer['ticket_status'] === "")
+                                            <span class="badge bg-soft-success text-muted">-</span>
                                         @else
                                             <span class="badge bg-soft-danger text-success">DROPPED</span>
                                     @endif

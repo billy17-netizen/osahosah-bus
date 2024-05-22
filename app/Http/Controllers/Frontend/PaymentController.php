@@ -9,6 +9,7 @@ use App\Models\BusRoute;
 use App\Models\Customer;
 use App\Models\Payment;
 use App\Service\BusBookingService;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -55,17 +56,30 @@ class PaymentController extends Controller
     {
         // Check if the user has any unused tickets
         $userId = auth()->id();
-        $unusedTickets = Booking::where('user_id', $userId)->whereHas('bookingDetails', function ($query) {
-            $query->where('ticket_status', 'unused');
-        })->count();
+        // Define a constant for ticket statuses
+        define('TICKET_STATUSES', ['unused', 'boarded']);
 
+        $unusedTickets = Booking::where('user_id', $userId)->whereHas('bookingDetails', function ($query) {
+            $query->whereIn('ticket_status', TICKET_STATUSES);
+//            $query->where('travel_date', '>=', Carbon::now()->toDateString());
+        })->count();
         if ($unusedTickets > 0) {
             // Inform the user that they cannot book a new ticket
             return response()->json([
                 'success' => false,
-                'message' => 'You have an unused ticket and cannot book a new one until it is used.',
+                'message' => 'Please use your existing tickets before booking new ones & Wait for your any tickets to be dropped',
             ]);
         }
+        //handle for the user if user in the payment page
+        //but the date of travel date from bus availability is less than the current date
+        $busAvailability = BusAvailability::find($request->bus_availability_id);
+        if ($busAvailability->travel_date < Carbon::now()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'The travel date is less than the current date',
+            ]);
+        }
+//        dd($busAvailability->travel_date < Carbon::now()->toDateString());
         // Create booking
 //        dd($booking[0]['booking']->id);
         $transaction = [
@@ -92,8 +106,9 @@ class PaymentController extends Controller
         ]);
     }
 
+
     /**
-     * @throws RandomExceptionAlias
+     * @throws RandomException
      */
     public function updatePaymentStatus(Request $request, BusBookingService $busBookingService): JsonResponse
     {
@@ -198,6 +213,39 @@ class PaymentController extends Controller
                 $seatConfig->status = 'sold_out';
                 $seatConfig->save();
             }
+        } elseif ($request->payment_status === 'expire') {
+            $booking->status = 'expired';
+
+            Log::info('Updating bus availability and seat configuration status...');
+
+            foreach ($booking->bookingDetails as $bookingDetail) {
+                Log::info('Processing booking detail: ' . $bookingDetail->id);
+
+                $busAvailability = BusAvailability::where('bus_id', $bookingDetail->bus_id)->firstOrFail();
+                if (!$busAvailability) {
+                    Log::error('BusAvailability not found for id: ' . $bookingDetail->bus_id);
+                    continue;
+                }
+
+                ++$busAvailability->available_seats;
+                $busAvailability->save();
+
+                Log::info('Updated available seats for BusAvailability id: ' . $busAvailability->id);
+
+                $bus = $busAvailability->bus;
+                if (!$bus) {
+                    Log::error('Bus not found for id: ' . $busAvailability->bus_id);
+                    continue;
+                }
+                //update status for seat configuration
+                $seatConfig = $bus->seatConfiguration()->where('code', $bookingDetail->seat_number)->first();
+                if (!$seatConfig) {
+                    Log::error('Seat configuration not found for code: ' . $bookingDetail->seat_number);
+                    continue;
+                }
+                $seatConfig->status = 'available';
+                $seatConfig->save();
+            }
         }
 
         $booking->save();
@@ -262,7 +310,9 @@ class PaymentController extends Controller
         $mergedDetails["ticket_number"] = implode(", ", $mergedDetails["ticket_number"]);
         $mergedDetails["ticket_status"] = implode(", ", $mergedDetails["ticket_status"]);
 
-        $customers = Customer::where('user_id', $booking->user_id)->get();
+
+        // Fetch the customer data related to the specific booking
+        $customers = Customer::where('booking_id', $booking->id)->get();
 
         // Create a new array to hold the customer data along with their seat_number and ticket_number
         $customerDetails = [];

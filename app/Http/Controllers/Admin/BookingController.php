@@ -62,7 +62,8 @@ class BookingController extends Controller
         $mergedDetails["ticket_number"] = implode(", ", $mergedDetails["ticket_number"]);
         $mergedDetails["ticket_status"] = implode(", ", $mergedDetails["ticket_status"]);
 
-        $customers = Customer::where('user_id', $booking->user_id)->get();
+        // Fetch the customer data related to the specific booking
+        $customers = Customer::where('booking_id', $booking->id)->get();
 
         // Create a new array to hold the customer data along with their seat_number and ticket_number
         $customerDetails = [];
@@ -93,7 +94,7 @@ class BookingController extends Controller
     {
         try {
             $booking = Booking::find($id);
-            $customer = Customer::where('user_id', $booking->user_id)->get();
+            $customer = Customer::where('booking_id', $booking->id)->get();
             foreach ($customer as $c) {
                 $c = Customer::find($c->id);
                 if ($c) {

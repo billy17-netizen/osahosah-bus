@@ -45,6 +45,7 @@ class BusBookingService
             foreach ($data['passenger_names'] as $i => $name) {
                 $customer = new Customer();
                 $customer->user_id = auth()->id();
+                $customer->booking_id = $busBook->id;
                 $customer->name = $name;
                 $customer->mobile_number = $data['passenger_mobile_numbers'][$i];
                 $customer->address = $data['passenger_addresses'][$i];

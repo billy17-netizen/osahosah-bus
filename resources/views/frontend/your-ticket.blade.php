@@ -75,11 +75,16 @@
                 </div>
             </div>
 
-            @if(empty($mergedDetails["ticket_number"]))
+            @if($booking->payment->payment_status === 'pending')
                 <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Pay if ticket number is missing !</code></p>
-            @else
-                <p class="mb-2 l-hght-18 font-weight-bold">Info:<code>Click on the ticket number to view the QR
+            @elseif($mergedDetails["ticket_status"] === "unused")
+                <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Click on the ticket number to view the QR
                         code</code></p>
+            @elseif($booking->status === 'expired')
+                <p class="mb-2 l-hght-18 font-weight-bold">Info: <code> Your payment has expired try to book again
+                        !</code></p>
+            @else
+                <p class="mb-2 l-hght-18 font-weight-bold">Info:</p>
             @endif
             @if($booking->payment->payment_status === 'pending' && $booking->status === 'pending')
                 <div class="list_item d-flex col-12 m-0 p-3 bg-white shadow-sm rounded-1 shadow-sm mt-2">
@@ -107,8 +112,9 @@
                                     <p class="small mb-0 ml-auto l-hght-14">-</p>
                                 @else
                                     @if($customerDetail['ticket_status'] === "unused")
-                                        <a href="{{ route('generate.qrcode', ['ticket_number' => $customerDetail['ticket_number']]) }}">
-                                            <p class="small mb-0 ml-auto l-hght-14"> {{$customerDetail['ticket_number']}}</p>
+                                        <a class="small mb-0 ml-auto"
+                                           href="{{ route('generate.qrcode', ['ticket_number' => $customerDetail['ticket_number']]) }}">
+                                            {{$customerDetail['ticket_number']}}
                                         </a>
                                     @else
                                         <p class="small mb-0 ml-auto l-hght-14"> {{$customerDetail['ticket_number']}}</p>
@@ -124,11 +130,14 @@
                                         <p class="small mb-0 ml-auto l-hght-14 text-warning"> UN-USED</p>
                                     @elseIf($customerDetail['ticket_status'] === 'boarded')
                                         <p class="small mb-0 ml-auto l-hght-14 text-info"> BOARDED</p>
-                                    @elseif(!empty($customerDetail['ticket_status']))
-                                        <p class="small mb-0 ml-auto l-hght-14 text-success">-</p>
                                     @else
                                         <p class="small mb-0 ml-auto l-hght-14 text-success"> DROPPED</p>
                                     @endif
+                                </div>
+                            @elseif($booking->status === 'expired')
+                                <div class="l-hght-10 d-flex align-items-center my-2">
+                                    <small class="text-muted mb-0 pr-1">Ticket Status</small>
+                                    <p class="small mb-0 ml-auto l-hght-14 text-danger"> EXPIRED</p>
                                 </div>
                             @endif
                             <div class="l-hght-10 d-flex align-items-center my-2">
@@ -184,7 +193,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-info " role="alert">
-                        <p>You need to pay for this ticket. Please click the button below if you successfully pay this
+                        <p>You need to pay for this ticket. Please click the button below if you successfully pay
+                            this
                             ticket.</p>
                         <hr>
                         <p class="mb-0">Total Pay :
@@ -244,7 +254,6 @@
                     },
                     success: function (response) {
                         var remainingTime = getRemainingTime(response.expiry_time);
-                        console.log(response);
                         if (response.transaction_status === 'settlement') {
                             // Payment is successful, stop polling
                             clearInterval(polling);
@@ -292,15 +301,39 @@
                             clearInterval(polling);
                             //close modal
                             $('#continue-modal').modal('hide');
-                        } else {
+                        } else if (response.transaction_status === 'expire') {
                             // Payment failed, stop polling
                             clearInterval(polling);
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Payment Failed',
-                                text: response.message,
-                                showConfirmButton: false,
-                                timer: 1500
+                            $.ajax({
+                                url: '{{ route('expire.payment') }}',
+                                type: 'POST',
+                                data: {
+                                    _token: '{{ csrf_token() }}',
+                                    booking_id: id
+                                },
+                                success: function (response) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Payment Expired',
+                                        text: response.message,
+                                        showConfirmButton: true,
+                                        allowOutsideClick: false,
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            $('#continue-modal').modal('hide');
+                                            window.location.reload();
+                                        }
+                                    });
+                                }, error: function (xhr) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Payment Failed',
+                                        text: xhr.responseJSON.message,
+                                        showConfirmButton: false,
+                                        allowOutsideClick: false,
+                                        timer: 1500
+                                    });
+                                }
                             });
                         }
                         // Enable the button after the request is complete
