@@ -4,7 +4,7 @@
     <div class="ticket padding-bt">
         <div class="osahan-header-nav shadow-sm p-3 d-flex align-items-center bg-danger">
             <h5 class="font-weight-normal mb-0 text-white">
-                <a class="text-danger mr-3" href="{{route('home')}}"><i class="icofont-rounded-left"></i></a>
+                <a class="text-danger mr-3" href="{{route('my-tickets')}}"><i class="icofont-rounded-left"></i></a>
                 Confirmation Boarding
             </h5>
         </div>

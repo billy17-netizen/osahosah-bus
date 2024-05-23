@@ -42,6 +42,18 @@
                aria-expanded="false">
                 <i class="ri-pages-line"></i> <span data-key="t-pages">All Booking</span>
             </a>
+            <a class="nav-link menu-link" href="{{route('admin.booking.approved')}}" role="button"
+               aria-expanded="false">
+                <i class="ri-pages-line"></i> <span data-key="t-pages">Approved Booking</span>
+            </a>
+            <a class="nav-link menu-link" href="{{route('admin.booking.pending')}}" role="button"
+               aria-expanded="false">
+                <i class="ri-pages-line"></i> <span data-key="t-pages">Pending Booking</span>
+            </a>
+            <a class="nav-link menu-link" href="{{route('admin.booking.expired')}}" role="button"
+               aria-expanded="false">
+                <i class="ri-pages-line"></i> <span data-key="t-pages">Expired Booking</span>
+            </a>
         </li>
 
         <li class="nav-item">

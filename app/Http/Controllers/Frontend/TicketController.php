@@ -62,6 +62,61 @@ class TicketController extends Controller
         return view('frontend.ticket.index', compact('bookings'));
     }
 
+    public function changeTicketStatusExpired(Request $request): JsonResponse
+    {
+        try {
+            $booking = Booking::where('user_id', auth()->id())
+                ->where('id', $request->booking_id)
+                ->first();
+
+            if (!$booking) {
+                return response()->json(['error' => 'Booking not found'], 404);
+            }
+
+            //update the ticket status
+            $bookingDetails = $booking->bookingDetails;
+            $totalSeats = 0;
+
+            foreach ($bookingDetails as $detail) {
+                if ($detail->ticket_status === 'unused') {
+                    $detail->ticket_status = 'expired';
+                    $detail->save();
+                }
+                if ($detail->ticket_status === 'expired') {
+                    //get back a seat code
+                    $bus = $detail->bus;
+                    $bus->seatConfiguration()->where('code', $detail->seat_number)->update(['status' => 'available']);
+                    $bus->save();
+
+                    $totalSeats += 1; // Increment total seats by 1 for each expired ticket
+                }
+            }
+
+            // Update the available seats
+            $busAvailability = $bookingDetails->first()->bus->busAvailability->where('bus_route_id', $bookingDetails->first()->bus_route_id)->first();
+            if (!$busAvailability) {
+                return response()->json(['error' => 'Bus availability not found'], 400);
+            }
+
+            $busAvailability->available_seats += $totalSeats;
+            $busAvailability->save();
+
+            activity()
+                ->performedOn($booking)
+                ->causedBy(auth()->user())
+                ->withProperties([
+                    'customEvent' => 'System has been changed the ticket status to expired',
+                    'Ticket Status Before' => '<span class="badge bg-soft-warning text-warning">UN-USED</span>',
+                    'Ticket Status After' => '<span class="badge bg-soft-danger text-danger">EXPIRED</span>',
+                ])
+                ->log('Ticket status has been changed to expired');
+            return response()->json(['message' => "Your payment has been expired and the ticket has been canceled try booking again"]);
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+            return response()->json(['error' => 'An error occurred while canceling the ticket'], 500);
+        }
+    }
+
     public function checkPaymentStatus(Request $request): JsonResponse
     {
         $bookingId = $request->booking_id;
@@ -126,6 +181,18 @@ class TicketController extends Controller
                 $detail->ticket_status = 'unused';
                 $detail->save();
             }
+            activity()
+                ->performedOn($booking)
+                ->causedBy(auth()->user())
+                ->withProperties([
+                    'customEvent' => 'System has been changed the booking status to approved and payment status to settlement',
+                    'Booking Status Before' => '<span class="badge bg-soft-warning text-warning">Pending</span>',
+                    'Booking Status After' => '<span class="badge bg-soft-success text-success">Approved</span>',
+                    'Payment Status Before' => '<span class="badge bg-soft-warning text-warning">Pending</span>',
+                    'Payment Status After' => '<span class="badge bg-soft-success text-success">Settlement</span>',
+
+                ])
+                ->log('Payment has been successfully processed');
             return response()->json(['message' => 'Payment successfully']);
         } catch (Exception $e) {
             Log::error($e->getMessage());
@@ -192,6 +259,19 @@ class TicketController extends Controller
                     return response()->json(['error' => 'Total seats are not the same for all booking details'], 400);
                 }
             }
+            activity()
+                ->performedOn($booking)
+                ->causedBy(auth()->user())
+                ->withProperties([
+                    'customEvent' => 'System has been changed the booking status to expired and payment status to expire',
+                    'Ticket Status Before' => '<span class="badge bg-soft-warning text-warning">UN-USED</span>',
+                    'Ticket Status After' => '<span class="badge bg-soft-danger text-danger">EXPIRED</span>',
+                    'Payment Status Before' => '<span class="badge bg-soft-success text-success">Settlement</span>',
+                    'Payment Status After' => '<span class="badge bg-soft-danger text-danger">Expire</span>',
+                    'Booking Status Before' => '<span class="badge bg-soft-success text-success">Approved</span>',
+                    'Booking Status After' => '<span class="badge bg-soft-danger text-success">Expired</span>',
+                ])
+                ->log('Ticket status has been changed to expired');
             return response()->json(['message' => "Your payment has been expired and the ticket has been canceled try booking again"]);
         } catch (Exception $e) {
             Log::error($e->getMessage());

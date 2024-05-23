@@ -42,5 +42,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function () {
     Route::resource('bus-availability', BusAvailabilityController::class);
 
     //Booking
+    Route::get('booking/approved', [BookingController::class, 'approvedBookings'])
+        ->name('booking.approved');
+    Route::get('booking/pending', [BookingController::class, 'pendingBookings'])
+        ->name('booking.pending');
+    Route::get('booking/expired', [BookingController::class, 'expiredBookings'])
+        ->name('booking.expired');
     Route::resource('booking', BookingController::class);
 });

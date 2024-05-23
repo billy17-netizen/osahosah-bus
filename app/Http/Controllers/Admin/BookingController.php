@@ -10,6 +10,7 @@ use App\Models\Payment;
 use Exception;
 use Illuminate\Http\JsonResponse;
 use Log;
+use Spatie\Activitylog\Models\Activity;
 
 class BookingController extends Controller
 {
@@ -19,12 +20,31 @@ class BookingController extends Controller
         return view('admin.booking.index', compact('allBookings'));
     }
 
+    public function approvedBookings()
+    {
+        $approvedBookings = Booking::with('payment', 'user')->where('status', 'approved')->get();
+        return view('admin.booking.approved.index', compact('approvedBookings'));
+    }
+
+    public function pendingBookings()
+    {
+        $pendingBookings = Booking::with('payment', 'user')->where('status', 'pending')->get();
+        return view('admin.booking.pending.index', compact('pendingBookings'));
+    }
+
+    public function expiredBookings()
+    {
+        $expiredBookings = Booking::with('payment', 'user')->where('status', 'expired')->get();
+        return view('admin.booking.expired.index', compact('expiredBookings'));
+    }
+
     public function show($id)
     {
         $booking = Booking::with(['payment', 'user', 'bookingDetails' => function ($query) use ($id) {
             $query->where('booking_id', $id);
         }])->find($id);
-
+        $activities = Activity::where('subject_id', $booking->id)->orderBy('id', 'desc')->get();
+//        dd($activities[1]['properties']['payment_status_new']['payment_status']);
         $bookingDetails = $booking->bookingDetails;
         $mergedDetails = [];
 
@@ -86,7 +106,7 @@ class BookingController extends Controller
             ];
         }
 
-        return view('admin.booking.show', compact('booking', 'mergedDetails', 'customerDetails'));
+        return view('admin.booking.show', compact('booking', 'mergedDetails', 'customerDetails', 'activities'));
     }
 
 

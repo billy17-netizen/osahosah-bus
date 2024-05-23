@@ -74,17 +74,19 @@
                     </div>
                 </div>
             </div>
+            @php
+                $statuses = explode(',', $mergedDetails["ticket_status"]);
+            @endphp
 
-            @if($booking->payment->payment_status === 'pending')
-                <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Pay if ticket number is missing !</code></p>
-            @elseif($mergedDetails["ticket_status"] === "unused")
+            @if(trim($statuses[0]) === 'unused')
                 <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Click on the ticket number to view the QR
                         code</code></p>
+            @endif
+            @if($booking->payment->payment_status === 'pending')
+                <p class="mb-2 l-hght-18 font-weight-bold">Info: <code>Pay if ticket number is missing !</code></p>
             @elseif($booking->status === 'expired')
                 <p class="mb-2 l-hght-18 font-weight-bold">Info: <code> Your payment has expired try to book again
                         !</code></p>
-            @else
-                <p class="mb-2 l-hght-18 font-weight-bold">Info:</p>
             @endif
             @if($booking->payment->payment_status === 'pending' && $booking->status === 'pending')
                 <div class="list_item d-flex col-12 m-0 p-3 bg-white shadow-sm rounded-1 shadow-sm mt-2">
@@ -123,7 +125,7 @@
                                 @endif
                             </div>
 
-                            @if($booking->status === 'approved')
+                            @if($customerDetail['ticket_status'] === 'boarded' || $customerDetail['ticket_status'] === 'dropped' || $customerDetail['ticket_status'] === 'unused')
                                 <div class="l-hght-10 d-flex align-items-center my-2">
                                     <small class="text-muted mb-0 pr-1">Ticket Status</small>
                                     @if($customerDetail['ticket_status'] === 'unused')
@@ -134,7 +136,7 @@
                                         <p class="small mb-0 ml-auto l-hght-14 text-success"> DROPPED</p>
                                     @endif
                                 </div>
-                            @elseif($booking->status === 'expired')
+                            @elseif($customerDetail['ticket_status'] === 'expired')
                                 <div class="l-hght-10 d-flex align-items-center my-2">
                                     <small class="text-muted mb-0 pr-1">Ticket Status</small>
                                     <p class="small mb-0 ml-auto l-hght-14 text-danger"> EXPIRED</p>
@@ -224,12 +226,58 @@
             $('#continue-modal').modal('hide');
             ``
         });
-        {{--var payButton = document.getElementById('continue-pay');--}}
-        {{--payButton.addEventListener('click', function () {--}}
-        {{--    // Replace TRANSACTION_TOKEN_HERE with your actual transaction token--}}
-        {{--    var transactionToken = '{{session('snap_token')}}';--}}
-        {{--    window.open('https://app.sandbox.midtrans.com/snap/v2/vtweb/' + transactionToken, '_blank');--}}
-        {{--});--}}
+        {{--//function call if expired ticket has found--}}
+        {{--var pickupTimeString = '{{$mergedDetails['pickup_service']['pickup_time']}}'; // '09:00'--}}
+        {{--var pickupTimeParts = pickupTimeString.split(':'); // ['09', '00']--}}
+
+        {{--var pickupTime = new Date();--}}
+        {{--pickupTime.setHours(parseInt(pickupTimeParts[0])); // Set the hours to 9 AM--}}
+        {{--pickupTime.setMinutes(parseInt(pickupTimeParts[1])); // Set the minutes to 0; //09:00--}}
+        {{--console.log(pickupTime);--}}
+
+        {{--// Get the ticket status from the server--}}
+        {{--var ticketStatusString = '{{$mergedDetails["ticket_status"]}}'; // Replace this with the actual ticket status string--}}
+
+        {{--// Only start polling if the ticket status string contains 'unused'--}}
+        {{--if (ticketStatusString.includes('unused')) {--}}
+        {{--    var pollingExpired = setInterval(function () {--}}
+        {{--        var currentTime = new Date();--}}
+        {{--        if (currentTime > pickupTime) {--}}
+        {{--            // If the current time is later than the pickup time, expire the ticket--}}
+        {{--            $.ajax({--}}
+        {{--                url: '{{route('change-ticket-status-expired')}}',--}}
+        {{--                type: 'POST',--}}
+        {{--                data: {--}}
+        {{--                    _token: '{{ csrf_token() }}',--}}
+        {{--                    booking_id: '{{ $booking->id }}',--}}
+        {{--                },--}}
+        {{--                success: function (response) {--}}
+        {{--                    console.log(response);--}}
+        {{--                    // The ticket has been expired, stop polling--}}
+        {{--                    clearInterval(pollingExpired);--}}
+        {{--                    Swal.fire({--}}
+        {{--                        icon: 'error',--}}
+        {{--                        title: 'Ticket Expired',--}}
+        {{--                        text: response.message,--}}
+        {{--                        showConfirmButton: true,--}}
+        {{--                        allowOutsideClick: false,--}}
+        {{--                    }).then((result) => {--}}
+        {{--                        if (result.isConfirmed) {--}}
+        {{--                            window.location.reload();--}}
+        {{--                        }--}}
+        {{--                    });--}}
+        {{--                    // You can also add additional actions here, like updating the UI--}}
+        {{--                },--}}
+        {{--                error: function (error) {--}}
+        {{--                    console.error('Error:', error);--}}
+        {{--                }--}}
+        {{--            });--}}
+        {{--        } else {--}}
+        {{--            console.log('Ticket is still valid');--}}
+        {{--        }--}}
+        {{--    }, 5000); // Poll every 5 minutes--}}
+        {{--}--}}
+
         var polling; // Declare polling at a higher scope
 
         $('#continue-pay').click(function () {

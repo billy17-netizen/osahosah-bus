@@ -60,6 +60,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     //My All Bookings or My Tickets
     Route::get('my-tickets', [TicketController::class, 'myTicket'])->name('my-tickets');
+    //check ticket status
+    Route::post('change-ticket-status-expired', [TicketController::class, 'changeTicketStatusExpired'])->name('change-ticket-status-expired');
+
     Route::post('/check-payment-status',
         [TicketController::class, 'checkPaymentStatus'])->name('check-payment-status');
     Route::post('/done-payment', [TicketController::class, 'donePayment'])->name('done.payment');

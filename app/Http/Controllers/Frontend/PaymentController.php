@@ -45,7 +45,6 @@ class PaymentController extends Controller
 
 
         return view('frontend.payment', compact('busAvailDetail', 'pickupPoint', 'droppingPoint'));
-
     }
 
 
@@ -116,6 +115,11 @@ class PaymentController extends Controller
         $data['booking_id'] = $request->booking_id;
         $busBookingService->createBooking($data);
         $booking = Booking::where('id', $request->booking_id)->firstOrFail();
+        activity()
+            ->performedOn($booking)
+            ->causedBy(auth()->user())
+            ->withProperties(['customEvent' => 'System has made your booking', 'Booking ID' => $booking->id])
+            ->log('Booking has been created');
 
         $statuses = [
             'pending',
@@ -139,6 +143,24 @@ class PaymentController extends Controller
         $payment->payment_date = $request->payment_approve_date;
         $payment->amount = $request->amount;
         $payment->save();
+
+        activity()
+            ->performedOn($booking)
+            ->causedBy(auth()->user())
+            ->withProperties([
+                'customEvent' => 'System has made your payment ',
+                'payment_data' => [
+                    'Total Amount' => 'Rp ' . number_format($payment->amount, 0, ',', '.'),
+                    'Payment Method' => ucwords(str_replace('_', ' ', substr($payment->payment_method, 0, strrpos($payment->payment_method, ' - ')))) . '-' . strtoupper(substr($payment->payment_method, strrpos($payment->payment_method, ' - ') + 3)),
+                    'Payment Status' => '<span class="badge ' .
+                        ($payment->payment_status === 'pending' ? 'bg-soft-warning text-warning' :
+                            ($payment->payment_status === 'settlement' ? 'bg-soft-success text-success' :
+                                'bg-soft-danger text-danger')) . '">' . ucwords($payment->payment_status) . '</span>',
+                    'Payment Date' => Carbon::parse($payment->payment_date)->format('d M Y h:i A'),
+                    'VA Number' => $payment->va_number
+                ],])
+            ->log('Payment has been created');
+
 
         $booking->transaction_id = $request->transaction_id;
         $booking->payment_id = $payment->id;
@@ -179,6 +201,17 @@ class PaymentController extends Controller
                 $seatConfig->status = 'sold_out';
                 $seatConfig->save();
             }
+            activity()
+                ->performedOn($booking)
+                ->causedBy(auth()->user())
+                ->withProperties([
+                    'customEvent' => 'System has updated your booking status',
+                    'Booking Status' => '<span class="badge ' .
+                        ($booking->status === 'pending' ? 'bg-soft-warning text-warning' :
+                            ($booking->status === 'approved' ? 'bg-soft-success text-success' :
+                                'bg-soft-danger text-danger')) . '">' . ucwords($booking->status) . '</span>',
+                ])
+                ->log('Booking has been approved');
         } elseif ($request->payment_status === 'pending') {
             $booking->status = 'pending';
 
@@ -213,6 +246,17 @@ class PaymentController extends Controller
                 $seatConfig->status = 'sold_out';
                 $seatConfig->save();
             }
+            activity()
+                ->performedOn($booking)
+                ->causedBy(auth()->user())
+                ->withProperties([
+                    'customEvent' => 'System has updated your booking status',
+                    'Booking Status' => '<span class="badge ' .
+                        ($booking->status === 'pending' ? 'bg-soft-warning text-warning' :
+                            ($booking->status === 'approved' ? 'bg-soft-success text-success' :
+                                'bg-soft-danger text-danger')) . '">' . ucwords($booking->status) . '</span>',
+                ])
+                ->log('Booking has been pending');
         } elseif ($request->payment_status === 'expire') {
             $booking->status = 'expired';
 
@@ -246,10 +290,32 @@ class PaymentController extends Controller
                 $seatConfig->status = 'available';
                 $seatConfig->save();
             }
+            activity()
+                ->performedOn($booking)
+                ->causedBy(auth()->user())
+                ->withProperties([
+                    'customEvent' => 'System has updated your booking status',
+                    'Booking Status' => '<span class="badge ' .
+                        ($booking->status === 'pending' ? 'bg-soft-warning text-warning' :
+                            ($booking->status === 'approved' ? 'bg-soft-success text-success' :
+                                'bg-soft-danger text-danger')) . '">' . ucwords($booking->status) . '</span>',
+                ])
+                ->log('Booking has been expired');
         }
 
         $booking->save();
+        activity()
+            ->performedOn($booking)
+            ->causedBy(auth()->user())
+            ->withProperties([
+                'customEvent' => 'System has updated your payment status',
+                'Payment Status' => '<span class="badge ' .
+                    ($payment->payment_status === 'pending' ? 'bg-soft-warning text-warning' :
+                        ($payment->payment_status === 'settlement' ? 'bg-soft-success text-success' :
+                            'bg-soft-danger text-danger')) . '">' . ucwords($payment->payment_status) . '</span>',
 
+            ])
+            ->log('Payment status has been updated');
         return response()->json([
             'success' => true,
             'ticket_url' => route('your-ticket', $booking->id),
