@@ -27,12 +27,27 @@
                 <div class="w-100">
                     <h6 class="my-1 l-hght-18 font-weight-bold">{{$busAvailDetail->bus->bus_name}}</h6>
                     <div class="start-rating f-10">
-                        <i class="icofont-star text-danger"></i>
-                        <i class="icofont-star text-danger"></i>
-                        <i class="icofont-star text-danger"></i>
-                        <i class="icofont-star text-danger"></i>
-                        <i class="icofont-star text-muted"></i>
-                        <span class="text-dark">4.0</span>
+                        @php
+                            $avg = $averageRating ?? null;
+                             if ($avg !== null) {
+                                 $fullStars = floor($avg);
+                                 $halfStar = ($avg - $fullStars) >= 0.5 ? 1 : 0;
+                                 $emptyStars = 5 - $fullStars - $halfStar;
+                             }
+                        @endphp
+
+                        @if ($avg !== null)
+                            @for ($i = 0; $i < $fullStars; $i++)
+                                <i class="icofont-star text-danger"></i>
+                            @endfor
+                            @if ($halfStar)
+                                <i class="icofont-star-half text-danger"></i>
+                            @endif
+                            @for ($i = 0; $i < $emptyStars; $i++)
+                                <i class="icofont-star text-muted"></i>
+                            @endfor
+                            <span class="text-dark">{{ number_format($avg, 1) }}</span>
+                        @endif
                         <div class="d-flex mt-2">
                             <p class="m-0"><i class="icofont-google-map mr-1 text-danger"></i><span class="small">{{$busAvailDetail->busRoute->origin}} to {{$busAvailDetail->busRoute->destination}}</span>
                             </p>

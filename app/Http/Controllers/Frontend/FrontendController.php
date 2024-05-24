@@ -62,6 +62,7 @@ class FrontendController extends Controller
 
         // Initialize $availableBuses as an empty array
         $availableBuses = [];
+        $reviewBusAvg = [];
 
         $origin = $request->input('origin');
         $destination = $request->input('destination');
@@ -94,11 +95,15 @@ class FrontendController extends Controller
             if (!$availabilities->isEmpty()) {
                 foreach ($availabilities as $availability) {
                     $availableBuses[] = $availability;
+
+                    $reviewBus = $availability->bus->reviews->where('is_approved', 1);
+                    $averageRating = $reviewBus->avg('punctuality_rating', 'services_staff_rating', 'cleanliness_rating', 'comfort_rating');
+
+                    $reviewBusAvg[$availability->bus_id] = $averageRating;
                 }
             }
         }
-
-        return view('frontend.home.list-bus-search', compact('availableBuses', 'travelDate', 'origin', 'destination'));
+        return view('frontend.home.list-bus-search', compact('availableBuses', 'travelDate', 'origin', 'destination', 'reviewBusAvg'));
     }
 
 }
