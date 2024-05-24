@@ -130,135 +130,103 @@
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <div class="bus-details pt-3 pb-0 px-3">
                     <div class="review" id="review">
-                        <h6 class="font-weight-normal">Review</h6>
-                        <p class="mb-0"><span class="h4 mb-0">4.8</span><span class="h6">/5</span></p>
-                        <span class="f-10">Punctuality</span>
-                        <div class="review-rating row align-items-center">
-                            <div class="start-rating f-8 col-3">
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                            </div>
-                            <div class="progress col-7 p-0">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"
-                                     aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <div class="col-2">
-                                <span class="small">5.0</span>
-                            </div>
-                        </div>
-                        <div class="review-rating row align-items-center">
-                            <div class="start-rating f-8 col-3">
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-muted"></i>
-                            </div>
-                            <div class="progress col-7 p-0">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%"
-                                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="75"></div>
-                            </div>
-                            <div class="col-2">
-                                <span class="small">4.0</span>
-                            </div>
-                        </div>
-                        <div class="review-rating row align-items-center">
-                            <div class="start-rating f-8 col-3">
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-muted"></i>
-                                <i class="icofont-star text-muted"></i>
-                            </div>
-                            <div class="progress col-7 p-0">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 50%"
-                                     aria-valuenow="50" aria-valuemin="0" aria-valuemax="50"></div>
-                            </div>
-                            <div class="col-2">
-                                <span class="small">3.0</span>
-                            </div>
-                        </div>
-                        <div class="review-rating row align-items-center">
-                            <div class="start-rating f-8 col-3">
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-muted"></i>
-                                <i class="icofont-star text-muted"></i>
-                                <i class="icofont-star text-muted"></i>
-                            </div>
-                            <div class="progress col-7 p-0">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 25%"
-                                     aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
-                            </div>
-                            <div class="col-2">
-                                <span class="small">2.0</span>
-                            </div>
-                        </div>
-                        <div class="review-rating row align-items-center">
-                            <div class="start-rating f-8 col-3">
-                                <i class="icofont-star text-danger"></i>
-                                <i class="icofont-star text-muted"></i>
-                                <i class="icofont-star text-muted"></i>
-                                <i class="icofont-star text-muted"></i>
-                                <i class="icofont-star text-muted"></i>
-                            </div>
-                            <div class="progress col-7 p-0">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 5%"
-                                     aria-valuenow="5" aria-valuemin="0" aria-valuemax="5"></div>
-                            </div>
-                            <div class="col-2">
-                                <span class="small">1.0</span>
-                            </div>
-                        </div>
-                        <div class="comments mt-3">
-                            <div class="reviews bg-white p-3 shadow-sm rounded-1 mb-3">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="img/review/r1.jpg" class="img-fluid rounded-pill">
-                                    <div class="ml-2">
-                                        <p class="mb-0 small font-weight-bold">Mike Jhon</p>
-                                        <div class="start-rating d-flex align-items-center f-8">
+                        @if($reviewBus->count() > 0)
+                            <h6 class="font-weight-normal">Review</h6>
+                            <p class="mb-0"><span class="h4 mb-0">{{ round($averageRating, 1) }}</span><span
+                                    class="h6">/5</span></p>
+                            <span
+                                class="f-10">{{ \Illuminate\Support\Str::title(str_replace(['_', 'rating'], ' ', $highestRatingCategory)) }}</span>
+                            @php
+                                // Initialize the categories
+                                $categories = [
+                                    '1-2' => [],
+                                    '2-3' => [],
+                                    '3-4' => [],
+                                    '4-5' => [],
+                                ];
+
+                                // Categorize the reviews
+                                foreach ($reviewBus as $review) {
+                                    $averageRating = $review->average_rating;
+                                    if ($averageRating >= 1 && $averageRating < 2) {
+                                        $categories['1-2'][] = $review;
+                                    } elseif ($averageRating >= 2 && $averageRating < 3) {
+                                        $categories['2-3'][] = $review;
+                                    } elseif ($averageRating >= 3 && $averageRating < 4) {
+                                        $categories['3-4'][] = $review;
+                                    } elseif ($averageRating >= 4 && $averageRating <= 5) {
+                                        $categories['4-5'][] = $review;
+                                    }
+                                }
+
+                                // Calculate the average rating for each category and display the stars
+                                foreach ($categories as $category => $reviews) {
+                                    $totalRating = 0;
+                                    $count = count($reviews);
+                                    foreach ($reviews as $review) {
+                                        $totalRating += $review->average_rating;
+                                    }
+                                    $averageRating = $count > 0 ? $totalRating / $count : 0;
+                            @endphp
+
+                            <div class="review-rating row align-items-center">
+                                <div class="start-rating f-8 col-3">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= round($averageRating))
                                             <i class="icofont-star text-danger"></i>
-                                            <i class="icofont-star text-danger"></i>
-                                            <i class="icofont-star text-danger"></i>
-                                            <i class="icofont-star text-danger"></i>
+                                        @else
                                             <i class="icofont-star text-muted"></i>
-                                            <span class="ml-2 small text-danger">Good</span>
-                                        </div>
-                                    </div>
-                                    <div class="date ml-auto mb-auto small">
-                                        <small class="f-10">24/03/2021</small>
-                                    </div>
+                                        @endif
+                                    @endfor
                                 </div>
-                                <p class="small text-muted mb-0">Dummy comment Lorem ipsum dolor sit amet, consectetur
-                                    adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                                    aliqua.</p>
-                            </div>
-                            <div class="reviews bg-white p-3 shadow-sm rounded-1 mb-3">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="img/review/r2.jpg" class="img-fluid rounded-pill">
-                                    <div class="ml-2">
-                                        <p class="mb-0 small font-weight-bold">Mike Jhon</p>
-                                        <div class="start-rating d-flex align-items-center f-8">
-                                            <i class="icofont-star text-danger"></i>
-                                            <i class="icofont-star text-danger"></i>
-                                            <i class="icofont-star text-muted"></i>
-                                            <i class="icofont-star text-muted"></i>
-                                            <i class="icofont-star text-muted"></i>
-                                            <span class="ml-2 small text-danger">Not Good</span>
-                                        </div>
-                                    </div>
-                                    <div class="date ml-auto mb-auto small">
-                                        <small class="f-10">24/03/2020</small>
-                                    </div>
+                                <div class="progress col-7 p-0">
+                                    <div class="progress-bar bg-danger" role="progressbar"
+                                         style="width: {{ $averageRating * 20 }}%"
+                                         aria-valuenow="{{ $averageRating * 20 }}" aria-valuemin="0"
+                                         aria-valuemax="100"></div>
                                 </div>
-                                <p class="small text-muted mb-0">Not good item for dummy text item Lorem ipsum dolor sit
-                                    amet, consectetur adipisicing elit, tempor incididunt ut labore et dolore magna
-                                    aliqua.</p>
+                                <div class="col-2">
+                                    <span class="small">{{ round($averageRating, 1) }}</span>
+                                </div>
                             </div>
-                        </div>
+                            @php
+                                }
+                            @endphp
+
+
+                            <div class="comments mt-3">
+                                @foreach($reviewBus as $review)
+                                    <div class="reviews bg-white p-3 shadow-sm rounded-1 mb-3">
+                                        <div class="d-flex align-items-center mb-2">
+                                            <img src="{{$review->user->avatar}}" class="img-fluid rounded-pill"
+                                                 style="width: 30px; height: 30px">
+                                            <div class="ml-2">
+                                                <p class="mb-0 small font-weight-bold">{{ $review->user->name }}</p>
+                                                <div class="start-rating d-flex align-items-center f-8">
+                                                    @for($i = 1; $i <= 5; $i++)
+                                                        @if($i <= round($review->average_rating))
+                                                            <i class="icofont-star text-danger"></i>
+                                                        @else
+                                                            <i class="icofont-star text-muted"></i>
+                                                        @endif
+                                                    @endfor
+                                                    <span
+                                                        class="ml-2 small text-danger">{{ round($review->average_rating, 1) }}</span>
+                                                </div>
+                                            </div>
+                                            <div class="date ml-auto mb-auto small">
+                                                <small class="f-10">{{ $review->created_at->format('d/m/Y') }}</small>
+                                            </div>
+                                        </div>
+                                        <p class="small text-muted mb-0">{{ $review->comment }}</p>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @else
+                            <div class="alert alert-warning text-center" role="alert">
+                                No reviews available for this bus.
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -287,7 +255,8 @@
                             <h6 class="border-bottom pb-3 mb-3">Dropping Point Selected</h6>
                             @foreach($pickUpService as $droppingPoint)
                                 <div class="custom-control custom-radio custom-control-inline mb-3 readonly-cursor">
-                                    <input type="radio" id="customDroppingpoint{{$droppingPoint->pickupService->id}}"
+                                    <input type="radio"
+                                           id="customDroppingpoint{{$droppingPoint->pickupService->id}}"
                                            name="dropping_point" value="{{$droppingPoint->pickupService->id}}"
                                            class="custom-control-input readonly-cursor" disabled>
                                     <label class="custom-control-label small d-flex readonly-cursor"
@@ -309,7 +278,8 @@
     <div class="fixed-bottom view-seatbt p-3">
         <form method="POST" action="{{ route('book-bus-route', $busAvailDetail->id) }}">
             @csrf
-            <button type="submit" class="btn btn-danger btn-block osahanbus-btn rounded-1">Book Your Seats Now</button>
+            <button type="submit" class="btn btn-danger btn-block osahanbus-btn rounded-1">Book Your Seats Now
+            </button>
         </form>
     </div>
 @endsection

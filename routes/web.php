@@ -6,6 +6,7 @@ use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\PaymentController;
 use App\Http\Controllers\Frontend\ProfileController;
 use App\Http\Controllers\Frontend\QrCodeController;
+use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\TicketController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +73,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/generate-qrcode/{ticket_number}', [QrCodeController::class, 'generate'])->name('generate.qrcode');
     Route::get('/board/{ticketId}', [QrCodeController::class, 'board'])->name('board');
     Route::get('/confirmation', [QrCodeController::class, 'confirmation'])->name('confirmation');
+
+    //Review
+    Route::get('review-page/{id}', [ReviewController::class, 'index'])->name('review.index');
+    Route::post('review-store', [ReviewController::class, 'store'])->name('review.store');
     //Profile
     Route::get('profile', [ProfileController::class, 'profile'])->name('profile.index');
     Route::put('profile/update', [ProfileController::class, 'updateProfile'])->name('profiles.update');

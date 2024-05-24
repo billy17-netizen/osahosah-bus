@@ -104,7 +104,7 @@
                                                     <h6 class="fs-15 mb-0 fw-semibold">{{ucwords($activity->description)}}
                                                         -
                                                         <span
-                                                            class="fw-normal">{{Carbon\Carbon::parse($activity->created_at)->format('D, d M Y H:i A')}}</span>
+                                                            class="fw-normal">{{Carbon::parse($activity->created_at)->format('D, d M Y H:i A')}}</span>
                                                     </h6>
                                                 </div>
                                             </div>
@@ -217,7 +217,7 @@
                         <li class="fw-medium fs-14">{{$mergedDetails['pickup_service']['pickup_location']}}</li>
                         <li>{{$mergedDetails['bus_route']['origin']}}</li>
                         <li>Rp {{number_format($mergedDetails['pickup_service']['pickup_fee'], 0, ',', '.')}}</li>
-                        <li>{{Carbon\Carbon::parse($mergedDetails['pickup_service']['pickup_time'])->format('h:i A')}}</li>
+                        <li>{{Carbon::parse($mergedDetails['pickup_service']['pickup_time'])->format('h:i A')}}</li>
                         <li>
                             @if($mergedDetails['pickup_service']['status'] === 1)
                                 <span class="bg-soft-success text-success">Active</span>
@@ -239,7 +239,7 @@
                         <li class="fw-medium fs-14">{{$mergedDetails['pickup_service']['dropping_point']}}</li>
                         <li>{{$mergedDetails['bus_route']['destination']}}</li>
                         <li>Rp {{number_format($mergedDetails['pickup_service']['pickup_fee'], 0, ',', '.')}}</li>
-                        <li>{{Carbon\Carbon::parse($mergedDetails['pickup_service']['dropping_time'])->format('h:i A')}}</li>
+                        <li>{{Carbon::parse($mergedDetails['pickup_service']['dropping_time'])->format('h:i A')}}</li>
                         <li>
                             @if($mergedDetails['pickup_service']['status'] === 1)
                                 <span class="bg-soft-success text-success">Active</span>
@@ -295,7 +295,7 @@
                             <p class="text-muted mb-0">Payment Date:</p>
                         </div>
                         <div class="flex-grow-1 ms-2">
-                            <h6 class="mb-0">{{Carbon\Carbon::parse($booking->payment->payment_date)->format('d M Y H:i A')}}</h6>
+                            <h6 class="mb-0">{{Carbon::parse($booking->payment->payment_date)->format('d M Y H:i A')}}</h6>
                         </div>
                     </div>
                     <div class="d-flex align-items-center">

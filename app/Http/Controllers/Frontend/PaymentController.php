@@ -8,6 +8,7 @@ use App\Models\BusAvailability;
 use App\Models\BusRoute;
 use App\Models\Customer;
 use App\Models\Payment;
+use App\Models\Review;
 use App\Service\BusBookingService;
 use Carbon\Carbon;
 use Exception;
@@ -90,11 +91,8 @@ class PaymentController extends Controller
                 'first_name' => auth()->user()->name,
                 'email' => auth()->user()->email,
             ],
-            'credit_card' => [
-                'secure' => true,
-            ],
             'enabled_payments' => [
-                'bca_va', 'bni_va', 'bri_va',
+                'bca_va', 'bni_va', 'bri_va'
             ],
         ];
         $snapToken = Snap::getSnapToken($transaction);
@@ -335,6 +333,7 @@ class PaymentController extends Controller
     {
         $userId = auth()->id();
         $booking = Booking::with('payment', 'bookingDetails.busRoute')->where('id', $id)->where('user_id', $userId)->first();
+        $review = Review::where('booking_id', $booking->id)->first();
         // Check if the booking exists and belongs to the authenticated user
         if (!$booking || $booking->user_id !== $userId) {
             // Redirect back with an error message
@@ -401,7 +400,7 @@ class PaymentController extends Controller
         }
 
 
-        return view('frontend.your-ticket', compact('booking', 'mergedDetails', 'customerDetails'));
+        return view('frontend.your-ticket', compact('booking', 'mergedDetails', 'customerDetails', 'review'));
     }
 }
 

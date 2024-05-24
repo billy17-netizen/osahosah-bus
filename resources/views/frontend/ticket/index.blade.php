@@ -57,8 +57,15 @@
                         </div>
                         <div class="col-6 p-0">
                             <small class="text-muted mb-1 f-10 pr-1">YOU RATED</small>
-                            <p class="small mb-0 l-hght-14"><a class="text-success font-weight-bold"
-                                                               href="customer-feedback.html">RATE NOW</a></p>
+                            @if($review === null)
+                                <p class="small mb-0 l-hght-14"><a class="text-success font-weight-bold"
+                                                                   href="{{route('review.index',$booking->id)}}">RATE
+                                        NOW</a></p>
+                            @else
+                                <p class="small mb-0 l-hght-14"><span
+                                        class="icofont-star text-warning"></span> {{ round(@$review->average_rating, 1) }}
+                                </p>
+                            @endif
                         </div>
                     </div>
                 </div>

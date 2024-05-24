@@ -37,4 +37,9 @@ class Bus extends Model
     {
         return $this->hasMany(BusAvailability::class);
     }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
+    }
 }

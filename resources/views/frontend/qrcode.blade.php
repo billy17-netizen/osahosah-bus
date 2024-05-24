@@ -13,9 +13,10 @@
             <div class="bg-white border border-warning rounded-1 shadow-sm p-3 mb-3">
                 <div class="card-body">
                     <div class="text-center">
-                        <img src="data:image/png;base64,{{ $qrCodeString }}"/>
+                        <img src="data:image/png;base64,{{ $qrCodeString }}" alt="qr-code"/>
                         {{--a href to scan a ticket simulation--}}
-                        <a href="{{route('board',$bookingDetails->ticket_number)}}" class="btn btn-danger mt-3">Scan
+                        <a href="{{route('board',$bookingDetails->ticket_number)}}"
+                           class="btn btn-danger mt-3 loading-scan">Scan
                             Ticket</a>
                     </div>
                 </div>
@@ -30,4 +31,37 @@
             </div>
         </div>
     </div>
+    <style>
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0.5;
+            }
+        }
+
+        .disabled {
+            animation: fadeOut 1s infinite alternate;
+        }
+    </style>
 @endsection
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('.loading-scan').click(function (event) {
+                var href = $(this).attr('href'); // get the href attribute
+                console.log('Scanning...');
+                $(this).html('<i class="fa fa-spinner fa-spin"></i> Scanning...');
+                $(this).off('click'); // remove the click event handler
+                $(this).addClass('disabled'); // add the disabled class
+
+                setTimeout(function () {
+                    window.location.href = href; // navigate to the URL after a delay
+                }, 2000); // delay in milliseconds
+
+                return false; // prevent the default action
+            });
+        });
+    </script>
+@endpush

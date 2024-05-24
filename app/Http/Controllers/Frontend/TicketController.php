@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
+use App\Models\Review;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
@@ -22,6 +23,7 @@ class TicketController extends Controller
             ->get();
 
         foreach ($bookings as $booking) {
+            $review = Review::where('booking_id', $booking->id)->first();
             $bookingDetails = $booking->bookingDetails;
             $mergedDetails = [];
 
@@ -59,7 +61,7 @@ class TicketController extends Controller
             $booking->mergedDetails = $mergedDetails;
         }
 
-        return view('frontend.ticket.index', compact('bookings'));
+        return view('frontend.ticket.index', compact('bookings', 'review'));
     }
 
     public function changeTicketStatusExpired(Request $request): JsonResponse
@@ -264,12 +266,9 @@ class TicketController extends Controller
                 ->causedBy(auth()->user())
                 ->withProperties([
                     'customEvent' => 'System has been changed the booking status to expired and payment status to expire',
-                    'Ticket Status Before' => '<span class="badge bg-soft-warning text-warning">UN-USED</span>',
                     'Ticket Status After' => '<span class="badge bg-soft-danger text-danger">EXPIRED</span>',
-                    'Payment Status Before' => '<span class="badge bg-soft-success text-success">Settlement</span>',
                     'Payment Status After' => '<span class="badge bg-soft-danger text-danger">Expire</span>',
-                    'Booking Status Before' => '<span class="badge bg-soft-success text-success">Approved</span>',
-                    'Booking Status After' => '<span class="badge bg-soft-danger text-success">Expired</span>',
+                    'Booking Status After' => '<span class="badge bg-soft-danger text-danger">Expired</span>',
                 ])
                 ->log('Ticket status has been changed to expired');
             return response()->json(['message' => "Your payment has been expired and the ticket has been canceled try booking again"]);

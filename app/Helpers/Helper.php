@@ -1,12 +1,14 @@
 <?php
 
-if (!function_exists('generateUniqueTicketNumber')) {
-    function generateUniqueTicketNumber()
-    {
-        // Generate a random string with 6 characters
-        $random = strtoupper(Str::random(6));
+use Random\RandomException;
 
-        // Return the unique ticket number
-        return $random;
+if (!function_exists('generateUniqueTicketNumber')) {
+    /**
+     * @throws RandomException
+     */
+    function generateUniqueTicketNumber(): string
+    {
+        return 'TICKET' . date('YmdHis') . random_int(1000, 999999);
+
     }
 }

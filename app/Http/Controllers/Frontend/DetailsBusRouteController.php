@@ -19,8 +19,13 @@ class DetailsBusRouteController extends Controller
         session()->forget('dropping_point');
 //        dd(session('pickup_point') . ' ' . session('dropping_point'));
         $busAvailDetail = BusAvailability::with(['busRoute', 'bus'])->find($id);
-
-
+        $reviewBus = $busAvailDetail->bus->reviews()->where('is_approved', '1')->get();
+        //get average rating of the bus
+        $averageRating = $busAvailDetail->bus->reviews()->where('is_approved', '1')->avg('punctuality_rating', 'services_staff_rating', 'cleanliness_rating', 'comfort_rating');
+        // Get the highest rating category for all reviews of the bus
+        $highestRatingCategory = $busAvailDetail->bus->reviews()->where('is_approved', '1')->get()->max(function ($review) {
+            return $review->highest_rating;
+        });
         //get all the pickup services for the bus route
         $pickUpService = BusRoute::where([
             'origin' => $busAvailDetail->busRoute->origin,
@@ -28,8 +33,9 @@ class DetailsBusRouteController extends Controller
         ])->with('pickupService')->get();
 
 
-        return view('frontend.bus-route-details', compact('busAvailDetail', 'pickUpService'));
+        return view('frontend.bus-route-details', compact('busAvailDetail', 'pickUpService', 'reviewBus', 'averageRating', 'highestRatingCategory'));
     }
+
 
     public function storePickupPoint(Request $request): JsonResponse
     {

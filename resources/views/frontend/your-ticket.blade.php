@@ -39,7 +39,15 @@
                     </div>
                     <div class="col-6 p-0">
                         <small class="text-muted mb-1 f-10 pr-1">YOU RATED</small>
-                        <p class="small mb-0 l-hght-14"><span class="icofont-star text-warning"></span> 3.5</p>
+                        @if($review === null)
+                            <p class="small mb-0 l-hght-14"><a class="text-success font-weight-bold"
+                                                               href="{{route('review.index',$booking->id)}}">RATE
+                                    NOW</a></p>
+                        @else
+                            <p class="small mb-0 l-hght-14"><span
+                                    class="icofont-star text-warning"></span> {{ round($review->average_rating, 1) }}
+                            </p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -226,57 +234,57 @@
             $('#continue-modal').modal('hide');
             ``
         });
-        {{--//function call if expired ticket has found--}}
-        {{--var pickupTimeString = '{{$mergedDetails['pickup_service']['pickup_time']}}'; // '09:00'--}}
-        {{--var pickupTimeParts = pickupTimeString.split(':'); // ['09', '00']--}}
+        //function call if expired ticket has found
+        var pickupTimeString = '{{$mergedDetails['pickup_service']['pickup_time']}}'; // '09:00'
+        var pickupTimeParts = pickupTimeString.split(':'); // ['09', '00']
 
-        {{--var pickupTime = new Date();--}}
-        {{--pickupTime.setHours(parseInt(pickupTimeParts[0])); // Set the hours to 9 AM--}}
-        {{--pickupTime.setMinutes(parseInt(pickupTimeParts[1])); // Set the minutes to 0; //09:00--}}
-        {{--console.log(pickupTime);--}}
+        var pickupTime = new Date();
+        pickupTime.setHours(parseInt(pickupTimeParts[0])); // Set the hours to 9 AM
+        pickupTime.setMinutes(parseInt(pickupTimeParts[1])); // Set the minutes to 0; //09:00
+        console.log(pickupTime);
 
-        {{--// Get the ticket status from the server--}}
-        {{--var ticketStatusString = '{{$mergedDetails["ticket_status"]}}'; // Replace this with the actual ticket status string--}}
+        // Get the ticket status from the server
+        var ticketStatusString = '{{$mergedDetails["ticket_status"]}}'; // Replace this with the actual ticket status string
 
-        {{--// Only start polling if the ticket status string contains 'unused'--}}
-        {{--if (ticketStatusString.includes('unused')) {--}}
-        {{--    var pollingExpired = setInterval(function () {--}}
-        {{--        var currentTime = new Date();--}}
-        {{--        if (currentTime > pickupTime) {--}}
-        {{--            // If the current time is later than the pickup time, expire the ticket--}}
-        {{--            $.ajax({--}}
-        {{--                url: '{{route('change-ticket-status-expired')}}',--}}
-        {{--                type: 'POST',--}}
-        {{--                data: {--}}
-        {{--                    _token: '{{ csrf_token() }}',--}}
-        {{--                    booking_id: '{{ $booking->id }}',--}}
-        {{--                },--}}
-        {{--                success: function (response) {--}}
-        {{--                    console.log(response);--}}
-        {{--                    // The ticket has been expired, stop polling--}}
-        {{--                    clearInterval(pollingExpired);--}}
-        {{--                    Swal.fire({--}}
-        {{--                        icon: 'error',--}}
-        {{--                        title: 'Ticket Expired',--}}
-        {{--                        text: response.message,--}}
-        {{--                        showConfirmButton: true,--}}
-        {{--                        allowOutsideClick: false,--}}
-        {{--                    }).then((result) => {--}}
-        {{--                        if (result.isConfirmed) {--}}
-        {{--                            window.location.reload();--}}
-        {{--                        }--}}
-        {{--                    });--}}
-        {{--                    // You can also add additional actions here, like updating the UI--}}
-        {{--                },--}}
-        {{--                error: function (error) {--}}
-        {{--                    console.error('Error:', error);--}}
-        {{--                }--}}
-        {{--            });--}}
-        {{--        } else {--}}
-        {{--            console.log('Ticket is still valid');--}}
-        {{--        }--}}
-        {{--    }, 5000); // Poll every 5 minutes--}}
-        {{--}--}}
+        // Only start polling if the ticket status string contains 'unused'
+        if (ticketStatusString.includes('unused')) {
+            var pollingExpired = setInterval(function () {
+                var currentTime = new Date();
+                if (currentTime > pickupTime) {
+                    // If the current time is later than the pickup time, expire the ticket
+                    $.ajax({
+                        url: '{{route('change-ticket-status-expired')}}',
+                        type: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            booking_id: '{{ $booking->id }}',
+                        },
+                        success: function (response) {
+                            console.log(response);
+                            // The ticket has been expired, stop polling
+                            clearInterval(pollingExpired);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Ticket Expired',
+                                text: response.message,
+                                showConfirmButton: true,
+                                allowOutsideClick: false,
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.reload();
+                                }
+                            });
+                            // You can also add additional actions here, like updating the UI
+                        },
+                        error: function (error) {
+                            console.error('Error:', error);
+                        }
+                    });
+                } else {
+                    console.log('Ticket is still valid');
+                }
+            }, 5000); // Poll every 5 minutes
+        }
 
         var polling; // Declare polling at a higher scope
 
