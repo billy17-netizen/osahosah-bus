@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col-3 p-0 text-center">
-            <a href="#"
+            <a href="{{route('notice.index')}}"
                class="home text-white">
                 <span class="icofont-notification h5"></span>
                 <small class="osahan-n">4</small>

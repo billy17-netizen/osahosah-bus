@@ -1,7 +1,6 @@
 @extends('frontend.layouts.master')
 
 @section('content')
-    <!-- Ticket -->
     <div class="ticket padding-bt">
         <div class="osahan-header-nav shadow-sm p-3 d-flex align-items-center bg-danger">
             <h5 class="font-weight-normal mb-0 text-white">
@@ -177,13 +176,14 @@
     <div class="fixed-bottom p-3">
         <div class="footer-menu row m-0 px-1 bg-white shadow rounded-2">
             <div class="col-6 p-0 text-center">
-                <a href="profile.html" class="home text-danger py-3">
+                <a href="#"
+                   class="home text-danger py-3" id="download-pdf">
                     <span class="icofont-file-pdf h5"></span>
                     <p class="mb-0 small">Download Pdf</p>
                 </a>
             </div>
             <div class="col-6 p-0 text-center">
-                <a href="profile.html" class="home text-danger">
+                <a href="#" class="home text-danger" id="share-ticket">
                     <span class="icofont-share h5"></span>
                     <p class="mb-0 small">Share Ticket</p>
                 </a>
@@ -191,7 +191,8 @@
         </div>
     </div>
     <!-- Pay-Modal -->
-    <div class="modal fade" id="continue-modal" tabindex="-1" aria-labelledby="pay-modalLabel" aria-hidden="true">
+    <div class="modal fade" id="continue-modal" tabindex="-1" aria-labelledby="pay-modalLabel" aria-hidden="true"
+         data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header border-0 bg-light">
@@ -221,6 +222,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Share Ticket Modal -->
+    <div class="modal fade" id="shareTicketModal" tabindex="-1" aria-labelledby="shareTicketModalLabel"
+         data-backdrop="static" data-keyboard="false"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="shareTicketModalLabel">Share Ticket</h5>
+                    <button type="button" id="close-modal-ticket" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="shareTicketForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger w-100">Share</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @push('scripts')
     <script type="text/javascript">
@@ -229,62 +254,73 @@
             $('#continue-modal').modal('show');
         });
 
+        //open modal share-ticket
+        $('#share-ticket').click(function (e) {
+            e.preventDefault();
+            $('#shareTicketModal').modal('show');
+        });
+
         //close modal
         $('#close-modal').click(function () {
             $('#continue-modal').modal('hide');
             ``
         });
-        //function call if expired ticket has found
-        var pickupTimeString = '{{$mergedDetails['pickup_service']['pickup_time']}}'; // '09:00'
-        var pickupTimeParts = pickupTimeString.split(':'); // ['09', '00']
+        //close modal
+        $('#close-modal-ticket').click(function () {
+            $('#shareTicketModal').modal('hide');
+            ``
+        });
+        {{--//function call if expired ticket has found--}}
+        {{--var pickupTimeString = '{{$mergedDetails['pickup_service']['pickup_time']}}'; // '09:00'--}}
+        {{--var pickupTimeParts = pickupTimeString.split(':'); // ['09', '00']--}}
 
-        var pickupTime = new Date();
-        pickupTime.setHours(parseInt(pickupTimeParts[0])); // Set the hours to 9 AM
-        pickupTime.setMinutes(parseInt(pickupTimeParts[1])); // Set the minutes to 0; //09:00
-        console.log(pickupTime);
+        {{--var pickupTime = new Date();--}}
+        {{--pickupTime.setHours(parseInt(pickupTimeParts[0])); // Set the hours to 9 AM--}}
+        {{--pickupTime.setMinutes(parseInt(pickupTimeParts[1])); // Set the minutes to 0; //09:00--}}
+        {{--console.log(pickupTime);--}}
 
-        // Get the ticket status from the server
-        var ticketStatusString = '{{$mergedDetails["ticket_status"]}}'; // Replace this with the actual ticket status string
+        {{--// Get the ticket status from the server--}}
+        {{--var ticketStatusString = '{{$mergedDetails["ticket_status"]}}'; // Replace this with the actual ticket status string--}}
 
-        // Only start polling if the ticket status string contains 'unused'
-        if (ticketStatusString.includes('unused')) {
-            var pollingExpired = setInterval(function () {
-                var currentTime = new Date();
-                if (currentTime > pickupTime) {
-                    // If the current time is later than the pickup time, expire the ticket
-                    $.ajax({
-                        url: '{{route('change-ticket-status-expired')}}',
-                        type: 'POST',
-                        data: {
-                            _token: '{{ csrf_token() }}',
-                            booking_id: '{{ $booking->id }}',
-                        },
-                        success: function (response) {
-                            console.log(response);
-                            // The ticket has been expired, stop polling
-                            clearInterval(pollingExpired);
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Ticket Expired',
-                                text: response.message,
-                                showConfirmButton: true,
-                                allowOutsideClick: false,
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.reload();
-                                }
-                            });
-                            // You can also add additional actions here, like updating the UI
-                        },
-                        error: function (error) {
-                            console.error('Error:', error);
-                        }
-                    });
-                } else {
-                    console.log('Ticket is still valid');
-                }
-            }, 5000); // Poll every 5 minutes
-        }
+        {{--// Only start polling if the ticket status string contains 'unused'--}}
+        {{--if (ticketStatusString.includes('unused')) {--}}
+        {{--    var pollingExpired = setInterval(function () {--}}
+        {{--        var currentTime = new Date();--}}
+        {{--        if (currentTime > pickupTime) {--}}
+        {{--            // If the current time is later than the pickup time, expire the ticket--}}
+        {{--            $.ajax({--}}
+        {{--                url: '{{route('change-ticket-status-expired')}}',--}}
+        {{--                type: 'POST',--}}
+        {{--                data: {--}}
+        {{--                    _token: '{{ csrf_token() }}',--}}
+        {{--                    booking_id: '{{ $booking->id }}',--}}
+        {{--                },--}}
+        {{--                success: function (response) {--}}
+        {{--                    console.log(response);--}}
+        {{--                    // The ticket has been expired, stop polling--}}
+        {{--                    clearInterval(pollingExpired);--}}
+        {{--                    Swal.fire({--}}
+        {{--                        icon: 'error',--}}
+        {{--                        title: 'Ticket Expired',--}}
+        {{--                        text: response.message,--}}
+        {{--                        showConfirmButton: true,--}}
+        {{--                        allowOutsideClick: false,--}}
+        {{--                    }).then((result) => {--}}
+        {{--                        if (result.isConfirmed) {--}}
+        {{--                            window.location.reload();--}}
+        {{--                        }--}}
+        {{--                    });--}}
+        {{--                    // You can also add additional actions here, like updating the UI--}}
+        {{--                },--}}
+        {{--                error: function (error) {--}}
+        {{--                    console.error('Error:', error);--}}
+        {{--                }--}}
+        {{--            });--}}
+        {{--        } else {--}}
+        {{--            console.log('Ticket is still valid');--}}
+        {{--        }--}}
+        {{--    }, 5000); // Poll every 5 minutes--}}
+        {{--}--}}
 
         var polling; // Declare polling at a higher scope
 
@@ -419,5 +455,110 @@
             // Return the remaining time
             return diffHrs + " hours, " + diffMins + " minutes, and " + diffSecs + " seconds";
         }
+
+        $('#shareTicketForm').submit(function (e) {
+            e.preventDefault();
+
+            var email = $('#email').val();
+
+            $.ajax({
+                url: '/share-ticket/{{ $booking->id }}',  // Update with the correct URL
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    email: email
+                },
+                beforeSend: function () {
+                    $('#shareTicketForm button').prop('disabled', true)
+                        .html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sharing...');
+                },
+                success: function (response) {
+                    $('#shareTicketModal').modal('hide');
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ticket Shared',
+                        text: response.message,
+                        showConfirmButton: true,
+                        allowOutsideClick: false,
+                    });
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ticket Not Shared',
+                        text: xhr.responseJSON.message,
+                        showConfirmButton: true,
+                        allowOutsideClick: false,
+                    });
+                },
+                complete: function () {
+                    $('#shareTicketForm button').prop('disabled', false)
+                        .html('Share');
+                }
+            });
+        });
+
+        $('#download-pdf').click(function (e) {
+            e.preventDefault();
+            var bookingId = '{{ $booking->id }}';
+            $.ajax({
+                url: '{{ route('ticket.download') }}',
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    booking_id: bookingId
+                },
+                beforeSend: function () {
+                    $('#download-pdf').prop('disabled', true).html();
+                    Swal.fire({
+                        title: 'Please Wait',
+                        html: 'Downloading Ticket',
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+                },
+                success: function (response) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Ticket Downloaded',
+                        text: response.message,
+                        showConfirmButton: true,
+                        allowOutsideClick: false,
+                    });
+                    //execute to download pdf
+                    // Convert the base64 string to a Blob
+                    var byteCharacters = atob(response.pdfContent);
+                    var byteNumbers = new Array(byteCharacters.length);
+                    for (var i = 0; i < byteCharacters.length; i++) {
+                        byteNumbers[i] = byteCharacters.charCodeAt(i);
+                    }
+                    var byteArray = new Uint8Array(byteNumbers);
+                    var blob = new Blob([byteArray], {type: 'application/pdf'});
+
+                    // Create a link element
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'your-ticket.pdf';  // Update with your desired file name
+
+                    // Programmatically click the link to start the download
+                    link.click();
+                },
+                error: function (xhr) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ticket Not Downloaded',
+                        text: xhr.responseJSON.message,
+                        showConfirmButton: true,
+                        allowOutsideClick: false,
+                    });
+                },
+                complete: function () {
+                    $('#download-pdf').prop('disabled', false).html();
+                }
+            });
+        });
     </script>
 @endpush

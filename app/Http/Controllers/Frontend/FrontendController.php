@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Cookie;
 
 class FrontendController extends Controller
 {
+
+    public function noAvailable()
+    {
+        return view('frontend.home.no-bus-available');
+    }
+
     public function landing()
     {
         if (Auth::check() || Cookie::get('hasVisited')) {
@@ -103,7 +109,16 @@ class FrontendController extends Controller
                 }
             }
         }
+        //check if there are available buses
+        if (empty($availableBuses)) {
+            return redirect()->route('no-available');
+        }
         return view('frontend.home.list-bus-search', compact('availableBuses', 'travelDate', 'origin', 'destination', 'reviewBusAvg'));
+    }
+
+    public function notice()
+    {
+        return view('frontend.notice.index');
     }
 
 }

@@ -31,6 +31,7 @@ Route::get('/', [FrontendController::class, 'landing'])->name('landing');
 Route::get('/get-started', [FrontendController::class, 'getStarted'])->name('get-started');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('home', [FrontendController::class, 'index'])->name('home');
+    Route::get('no-available', [FrontendController::class, 'noAvailable'])->name('no-available');
 
     //Search Bus Route
     Route::post('list-bus-routes', [FrontendController::class, 'listBusRoutes'])->name('list-bus-routes');
@@ -77,7 +78,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //Review
     Route::get('review-page/{id}', [ReviewController::class, 'index'])->name('review.index');
     Route::post('review-store', [ReviewController::class, 'store'])->name('review.store');
+
+    //Download Ticket PDF
+    Route::post('/ticket-pdf/download', [TicketController::class, 'downloadPdf'])->name('ticket.download');
+    //Share Ticket
+    Route::post('share-ticket/{bookingId}', [TicketController::class, 'shareTicket'])->name('share-ticket');
+
+    //Notice
+    Route::get('notice', [FrontendController::class, 'notice'])->name('notice.index');
+
     //Profile
     Route::get('profile', [ProfileController::class, 'profile'])->name('profile.index');
     Route::put('profile/update', [ProfileController::class, 'updateProfile'])->name('profiles.update');
+
+//    Route::get('pdf-preview', function () {
+//        $booking = App\Models\Booking::with('bookingDetails')->find(2024052419369239);
+//        $customerDetails = Customer::where('booking_id', $booking->id)->get();
+////        dd($booking->bookingDetails->first()->busRoute->pickupService()->first()->pickup_location);
+//        return view('pdf.ticket_download', compact('booking', 'customerDetails'));
+//    });
 });

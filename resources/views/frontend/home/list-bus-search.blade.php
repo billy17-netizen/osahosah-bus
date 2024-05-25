@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            @forelse($availableBuses as $availableBus)
+            @foreach($availableBuses as $availableBus)
                 <!-- List Item -->
                 <a href="{{route('bus-route-details',$availableBus->id)}}" class="text-dark col-6 px-0">
                     <div class="list_item_gird m-0 bg-white shadow-sm listing-item border-bottom border-right">
@@ -97,13 +97,7 @@
                         </div>
                     </div>
                 </a>
-            @empty
-                <div class="col-md-12 text-center">
-                    <img src="{{asset('frontend/assets/img/no-buus.svg')}}" class="img-fluid" alt="No Bus"
-                    >
-                    <h5 class="font-weight-bold mt-3">No Bus Available</h5>
-                </div>
-            @endforelse
+            @endforeach
         </div>
     </div>
     <!-- Filter Modal -->

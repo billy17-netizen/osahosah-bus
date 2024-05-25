@@ -41,7 +41,7 @@
 <!-- verification -->
 @yield('content')
 <!-- Footer Fixed -->
-@if(!request()->routeIs('bus-route-details') && !request()->routeIs('list-bus-routes') && !request()->routeIs('book-bus-route')&& !request()->routeIs('bus-payment') && !request()->routeIs('your-ticket') &&  !request()->routeIs('generate.qrcode')&&  !request()->routeIs('confirmation') &&  !request()->routeIs('review.index'))
+@if(!request()->routeIs('bus-route-details') && !request()->routeIs('list-bus-routes') && !request()->routeIs('book-bus-route')&& !request()->routeIs('bus-payment') && !request()->routeIs('your-ticket') &&  !request()->routeIs('generate.qrcode')&&  !request()->routeIs('confirmation') &&  !request()->routeIs('review.index')&&  !request()->routeIs('notice.index')&&  !request()->routeIs('no-available'))
     @include('frontend.layouts.footer')
 @endif
 <!-- sidebar -->

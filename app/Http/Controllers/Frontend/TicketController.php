@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\TicketShared;
 use App\Models\Booking;
+use App\Models\Customer;
 use App\Models\Review;
 use Exception;
 use GuzzleHttp\Client;
@@ -12,6 +14,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use JsonException;
 use Log;
+use Mail;
 use Random\RandomException;
 
 class TicketController extends Controller
@@ -275,6 +278,57 @@ class TicketController extends Controller
         } catch (Exception $e) {
             Log::error($e->getMessage());
             return response()->json(['error' => 'An error occurred while canceling the ticket'], 500);
+        }
+    }
+
+    public function shareTicket(Request $request, $bookingId): JsonResponse
+    {
+        try {
+            $request->validate([
+                'email' => 'required|email',
+            ]);
+            $booking = Booking::with('bookingDetails')->findOrFail($bookingId);
+            $customers = Customer::where('booking_id', $booking->id)->get();
+            $email = $request->email;
+            Mail::to($email)->send(new TicketShared($booking, $customers));
+
+//            return redirect()->back()->with('success', 'Ticket shared successfully');
+            return response()->json(['message' => 'Ticket shared successfully']);
+        } catch (Exception $e) {
+            // Log the error
+            Log::error('Error sharing ticket: ' . $e->getMessage());
+
+            // Return an error response
+            return response()->json(['message' => 'There was an error sharing the ticket. Please try again later.'], 500);
+        }
+
+    }
+
+    public function downloadPdf(Request $request)
+    {
+        try {
+            $bookingId = $request->booking_id;
+            $booking = Booking::with('bookingDetails')->findOrFail($bookingId);
+            $customerDetails = Customer::where('booking_id', $booking->id)->get();
+
+            // Create an instance of the PDF class
+            $pdf = app('dompdf.wrapper');
+
+            // Now call the loadView method on the instance
+            $pdf->loadView('pdf.ticket_download', compact('booking', 'customerDetails'));
+
+            return response()->json([
+                'message' => 'PDF generated successfully',
+                'pdfContent' => base64_encode($pdf->output())
+            ]);
+        } catch (Exception $e) {
+            // Log the exception message
+            Log::error($e->getMessage());
+
+            // Return a response with the error message
+            return response()->json([
+                'message' => 'An error occurred while generating the PDF, please try again later.'
+            ], 500);
         }
     }
 }
