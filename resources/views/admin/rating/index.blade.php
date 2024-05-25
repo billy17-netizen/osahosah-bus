@@ -60,12 +60,51 @@
                                 </th>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{$review->user->name}}</td>
-                                <td>{{$review->booking->id}}</td>
+                                <td>
+                                    <a href="{{route('admin.booking.show', $review->booking->id)}}"
+                                       style="color: #0ac7fb">{{$review->booking->id}}</a>
+                                </td>
                                 <td>{{$review->bus->bus_name}}</td>
-                                <td>{{$review->punctuality_rating}}</td>
-                                <td>{{$review->services_staff_rating}}</td>
-                                <td>{{$review->cleanliness_rating}}</td>
-                                <td>{{$review->comfort_rating}}</td>
+                                <td>
+                                    @for ($i = 0; $i < $review->punctuality_rating; $i++)
+                                        <span style="color: orange;">&#9733;</span>
+                                        <!-- This is a filled star character -->
+                                    @endfor
+                                    @for ($i = $review->punctuality_rating; $i < 5; $i++)
+                                        <span style="color: grey;">&#9733;</span>
+                                        <!-- This is an unfilled star character -->
+                                    @endfor
+                                </td>
+                                <td>
+                                    @for ($i = 0; $i < $review->services_staff_rating; $i++)
+                                        <span style="color: orange;">&#9733;</span>
+                                        <!-- This is a filled star character -->
+                                    @endfor
+                                    @for ($i = $review->services_staff_rating; $i < 5; $i++)
+                                        <span style="color: grey;">&#9733;</span>
+                                        <!-- This is an unfilled star character -->
+                                    @endfor
+                                </td>
+                                <td>
+                                    @for ($i = 0; $i < $review->cleanliness_rating; $i++)
+                                        <span style="color: orange;">&#9733;</span>
+                                        <!-- This is a filled star character -->
+                                    @endfor
+                                    @for ($i = $review->cleanliness_rating; $i < 5; $i++)
+                                        <span style="color: grey;">&#9733;</span>
+                                        <!-- This is an unfilled star character -->
+                                    @endfor
+                                </td>
+                                <td>
+                                    @for ($i = 0; $i < $review->comfort_rating; $i++)
+                                        <span style="color: orange;">&#9733;</span>
+                                        <!-- This is a filled star character -->
+                                    @endfor
+                                    @for ($i = $review->comfort_rating; $i < 5; $i++)
+                                        <span style="color: grey;">&#9733;</span>
+                                        <!-- This is an unfilled star character -->
+                                    @endfor
+                                </td>
                                 <td>{{$review->comment}}</td>
                                 <td>
                                     @if($review->is_approved == 1)

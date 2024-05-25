@@ -27,7 +27,7 @@
             <a class="nav-link menu-link" href="{{route('admin.bus-availability.index')}}" role="button"
                aria-expanded="false">
                 <i class="ri-stack-line"></i> <span
-                    data-key="t-bus">List Bus-Availability</span>
+                    data-key="t-bus">Bus-Availability</span>
             </a>
             <a class="nav-link menu-link" href="{{route('admin.bus.index')}}" role="button"
                aria-expanded="false">
@@ -59,27 +59,6 @@
                aria-expanded="false">
                 <i class=" ri-send-backward"></i> <span data-key="t-pages">Expired Booking</span>
             </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link menu-link" href="#sidebarLanding" data-bs-toggle="collapse" role="button"
-               aria-expanded="false" aria-controls="sidebarLanding">
-                <i class="ri-rocket-line"></i> <span data-key="t-landing">Landing</span>
-            </a>
-            <div class="collapse menu-dropdown" id="sidebarLanding">
-                <ul class="nav nav-sm flex-column">
-                    <li class="nav-item">
-                        <a href="landing.html" class="nav-link" data-key="t-one-page"> One Page </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="nft-landing.html" class="nav-link" data-key="t-nft-landing"> NFT
-                            Landing </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="job-landing.html" class="nav-link" data-key="t-job">Job</a>
-                    </li>
-                </ul>
-            </div>
         </li>
 
     </ul>
