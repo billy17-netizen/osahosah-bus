@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\BusAvailabilityController;
 use App\Http\Controllers\Admin\BusRuteController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\ListBusController;
 use App\Http\Controllers\Admin\PickupDroppingController;
 use App\Http\Controllers\Admin\RatingBusController;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function () {
+
     Route::get('dashboard', [AdminDashboardController::class, 'index'])
         ->name('dashboard');
 
@@ -74,4 +76,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function () {
     Route::get('booking/expired', [BookingController::class, 'expiredBookings'])
         ->name('booking.expired');
     Route::resource('booking', BookingController::class);
+
 });

@@ -25,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'guest'], function () {
     Route::get('admin/login', [AdminAuthController::class, 'index'])->name('admin.login');
 });
+
+Route::fallback(function () {
+    abort(404);
+});
 require __DIR__ . '/auth.php';
 
 Route::get('/', [FrontendController::class, 'landing'])->name('landing');

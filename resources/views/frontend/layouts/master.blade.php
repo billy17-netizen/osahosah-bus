@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" href="{{asset('frontend/assets/img/logo.png')}}">
-    <title>OsahanBus - Bus Booking HTML Mobile Template</title>
+    <title>OsahanBus</title>
     <!-- Bootstrap core CSS -->
     <link href="{{asset('frontend/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     {{--    <!-- Toastr css-->--}}
