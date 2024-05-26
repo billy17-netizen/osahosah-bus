@@ -35,6 +35,15 @@
     <!-- Sidebar CSS -->
     <link href="{{asset('frontend/assets/vendor/sidebar/demo.css')}}" rel="stylesheet">
 </head>
+<!-- Preloader -->
+<div class="osahan-index bg-c d-flex align-items-center justify-content-center vh-100 index-page" id="preloader">
+    <div class="text-center">
+        <a href="javascript:">
+            <i class="icofont-bus text-white display-1 bg-danger p-4 rounded-circle"></i>
+        </a><br>
+        <div class="spinner"></div>
+    </div>
+</div>
 <body class="bg-light">
 <!-- verification -->
 @yield('content')
@@ -77,6 +86,19 @@
         @endforeach
     </script>
 @endif
+<script>
+    $(function () {
+        var $preloader = $('#preloader');
+        if ($preloader.length) {
+            setTimeout(function () {
+                $preloader.addClass('hidden');
+            }, 1000); // Add a 2-second delay before hiding the preloader
+        } else {
+            console.log('The preloader element was not found');
+        }
+    });
+
+</script>
 @stack('scripts')
 </body>
 </html>

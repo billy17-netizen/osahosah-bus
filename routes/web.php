@@ -90,6 +90,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //Profile
     Route::get('profile', [ProfileController::class, 'profile'])->name('profile.index');
     Route::put('profile/update', [ProfileController::class, 'updateProfile'])->name('profiles.update');
+    //Profile update avatar
+    Route::post('profile/update-avatar', [ProfileController::class, 'updateAvatar'])
+        ->name('profile.update-avatar');
+    //Change Password
+    Route::post('change-password', [ProfileController::class, 'changePassword'])
+        ->name('change-password');
 
 //    Route::get('pdf-preview', function () {
 //        $booking = App\Models\Booking::with('bookingDetails')->find(2024052419369239);

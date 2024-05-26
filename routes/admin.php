@@ -14,6 +14,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], static function () {
     Route::get('dashboard', [AdminDashboardController::class, 'index'])
         ->name('dashboard');
 
+    //Profile
+    Route::get('profile', [AdminDashboardController::class, 'profile'])
+        ->name('profile.index');
+    Route::put('profile/update', [AdminDashboardController::class, 'updateProfile'])
+        ->name('profile.update');
+    //Profile update avatar
+    Route::post('profile/update-avatar', [AdminDashboardController::class, 'updateAvatar'])
+        ->name('profile.update-avatar');
+    //Change Password
+    Route::post('change-password', [AdminDashboardController::class, 'changePassword'])
+        ->name('change-password');
+
     //Bus
     Route::resource('pickup-dropping', PickupDroppingController::class);
     Route::resource('bus', ListBusController::class);
